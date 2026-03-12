@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CrisisModule } from './crisis/crisis.module';
+import { ZonesModule } from './zones/zones.module';
 
 
 @Module({
@@ -23,9 +24,11 @@ import { CrisisModule } from './crisis/crisis.module';
     UsersModule,
     AuthModule,
     CrisisModule,
-   
+    ZonesModule,
+
+
   ],
   controllers: [AppController],
-  providers: [AppService],       
+  providers: [AppService],
 })
 export class AppModule { }
