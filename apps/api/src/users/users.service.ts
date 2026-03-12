@@ -24,6 +24,17 @@ export class UsersService {
   async findById(id: string) {
     return this.userModel.findById(id);
   }
+
+  // get all users (for admin)
+  async findAll() {
+    return this.userModel.find().select('-password');
+  }
+
+  // update role (for admin)
+  async updateRole(userId: string, role: string) {
+    return this.userModel.findByIdAndUpdate(userId, { role }, { new: true }).select('-password');
+  }
+
   async getProfile(userId: string) {
     console.log("Fetching profile for user ID:", userId);
     return this.userModel.findById(userId).select('-password');
@@ -36,4 +47,6 @@ export class UsersService {
       { new: true }
     ).select('-password');
   }
+
+
 }
