@@ -34,4 +34,12 @@ export class CrisisService {
     const result = await this.crisisModel.findByIdAndDelete(id);
     if (!result) throw new NotFoundException('Crisis not found');
   }
+
+  async closeCrisis(id: string) {
+  return this.crisisModel.findByIdAndUpdate(
+    id,
+    { status: 'RESOLUE' },
+    { new: true }
+  );
+}
 }
