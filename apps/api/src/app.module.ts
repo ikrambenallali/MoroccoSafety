@@ -9,6 +9,8 @@ import { CrisisModule } from './crisis/crisis.module';
 import { ZonesModule } from './zones/zones.module';
 import { ReportsModule } from './reports/reports.module';
 import { MediaModule } from './media/media.module';
+import { AlertsModule } from './alerts/alerts.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 
 @Module({
@@ -29,6 +31,8 @@ import { MediaModule } from './media/media.module';
     ZonesModule,
     ReportsModule,
     MediaModule,
+    AlertsModule,
+    NotificationsModule,
 
 
   ],
