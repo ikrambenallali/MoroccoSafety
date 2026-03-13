@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { CrisisModule } from './crisis/crisis.module';
 import { ZonesModule } from './zones/zones.module';
 import { ReportsModule } from './reports/reports.module';
+import { MediaModule } from './media/media.module';
 
 
 @Module({
@@ -27,6 +28,7 @@ import { ReportsModule } from './reports/reports.module';
     CrisisModule,
     ZonesModule,
     ReportsModule,
+    MediaModule,
 
 
   ],
