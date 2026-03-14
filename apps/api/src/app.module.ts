@@ -11,6 +11,7 @@ import { ReportsModule } from './reports/reports.module';
 import { MediaModule } from './media/media.module';
 import { AlertsModule } from './alerts/alerts.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { StatsModule } from './stats/stats.module';
 
 
 @Module({
@@ -33,6 +34,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     MediaModule,
     AlertsModule,
     NotificationsModule,
+    StatsModule,
 
 
   ],
