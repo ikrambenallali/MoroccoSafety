@@ -1,4 +1,8 @@
-import './globals.css'
+import './globals.css';
+import { Providers } from './providers';
+
+import { Provider } from 'react-redux';
+import { store } from '../features/store';
 
 export const metadata = {
   title: 'CrisAlert',
@@ -12,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
