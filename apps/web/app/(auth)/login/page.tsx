@@ -1,13 +1,15 @@
 'use client';
 
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../features/authSlice';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 export default function Login() {
     const dispatch = useDispatch();
     const router = useRouter();
+    const { token } = useSelector((state: any) => state.auth)
+
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -18,6 +20,13 @@ export default function Login() {
         // @ts-ignore
         dispatch(loginUser(form));
     };
+
+    useEffect(() => {
+        const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+        if (token || storedToken) {
+            router.replace('/admin/dashboard') // ✅ replace better que push
+        }
+    }, [token, router])
 
     return (
         <div className="flex min-h-screen w-full bg-[#2D3336]">
