@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from '../features/store';
 
 export const metadata = {
-  title: 'CrisAlert',
+  title: 'MoroccoSafety',
   description: 'Plateforme de gestion de crise',
 }
 
