@@ -9,55 +9,63 @@ export class AuthService {
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async register(data: any) {
 
-  const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await bcrypt.hash(data.password, 10);
 
-  const user = await this.usersService.create({
-    ...data,
-    password: hashedPassword,
-  });
+    const user = await this.usersService.create({
+      ...data,
+      password: hashedPassword,
+    });
 
-  const payload = {
-    sub: user._id,
-    email: user.email,
-    role: user.role,
-  };
+    const payload = {
+      sub: user._id,
+      email: user.email,
+      role: user.role,
+    };
 
-  const token = this.jwtService.sign(payload);
+    const token = this.jwtService.sign(payload);
 
-  return {
-    user,
-    access_token: token,
-  };
-}
-async login(data: any) {
-
-  const user = await this.usersService.findByEmail(data.email);
-
-  if (!user) {
-    throw new UnauthorizedException('Invalid credentials');
+    return {
+      user,
+      access_token: token,
+    };
   }
-  
+  async login(data: any) {
 
-  const isMatch = await bcrypt.compare(data.password, user.password);
+    const user = await this.usersService.findByEmail(data.email);
 
-  if (!isMatch) {
-    throw new UnauthorizedException('Invalid credentials');
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+
+    const isMatch = await bcrypt.compare(data.password, user.password);
+
+    if (!isMatch) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const payload = {
+      sub: user._id,
+      email: user.email,
+      role: user.role,
+    };
+
+    const token = this.jwtService.sign(payload);
+
+    // Return user without password
+    const { password, ...userWithoutPassword } = user.toObject();
+
+    return {
+      user: userWithoutPassword,
+      access_token: token,
+    };
   }
 
-  const payload = {
-    sub: user._id,
-    email: user.email,
-    role: user.role,
-  };
-
-  const token = this.jwtService.sign(payload);
-
-  return {
-    access_token: token,
-  };
-}
+  async getProfile(userId: string) {
+    return this.usersService.getProfile(userId);
+  }
 }

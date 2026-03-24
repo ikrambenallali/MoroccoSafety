@@ -29,19 +29,39 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+// 🔥 GET USER PROFILE
+export const getUserProfile = createAsyncThunk(
+  'auth/getProfile',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get(`${API}/me`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return res.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: null,
     token: null,
     loading: false,
-    error: null,
+    isInitialized: false, // Track if initial auth check is done
   },
   reducers: {
     logout: (state) => {
       state.user = null;
       state.token = null;
       localStorage.removeItem('token');
+    },
+    initialize: (state) => {
+      state.isInitialized = true;
     },
   },
   extraReducers: (builder) => {
@@ -70,7 +90,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload.access_token;
-        state.user = action.payload.user || state.user;
+        state.user = action.payload.user;
 
         // persist token so AuthGuard can read it after redirect
         localStorage.setItem('token', action.payload.access_token);
@@ -78,9 +98,31 @@ const authSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+
+      // GET PROFILE
+      .addCase(getUserProfile.pending, (state) => {
+        console.log('getUserProfile: pending');
+        state.loading = true;
+      })
+      .addCase(getUserProfile.fulfilled, (state, action) => {
+        console.log('getUserProfile: fulfilled', action.payload);
+        state.loading = false;
+        state.isInitialized = true;
+        state.user = action.payload;
+        state.token = localStorage.getItem('token'); // Sync token from localStorage
+      })
+      .addCase(getUserProfile.rejected, (state, action) => {
+        console.log('getUserProfile: rejected', action.payload);
+        state.loading = false;
+        state.isInitialized = true;
+        // If token is invalid, logout
+        state.user = null;
+        state.token = null;
+        localStorage.removeItem('token');
       });
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, initialize } = authSlice.actions;
 export default authSlice.reducer;

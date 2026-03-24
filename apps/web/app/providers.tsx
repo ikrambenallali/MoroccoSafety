@@ -2,7 +2,31 @@
 
 import { Provider } from 'react-redux';
 import { store } from '../features/store';
+import { useEffect } from 'react';
+import { getUserProfile, initialize } from '../features/authSlice';
+
+function InitAuth() {
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log('InitAuth: token in localStorage:', !!token);
+
+    if (token) {
+      console.log('InitAuth: dispatching getUserProfile');
+      store.dispatch(getUserProfile());
+    } else {
+      console.log('InitAuth: no token, marking as initialized');
+      // If no token, mark as initialized
+      store.dispatch(initialize());
+    }
+  }, []);
+  return null;
+}
 
 export function Providers({ children }) {
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <InitAuth />
+      {children}
+    </Provider>
+  );
 }
