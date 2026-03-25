@@ -12,7 +12,7 @@ export class StatsService {
     @InjectModel(Report.name) private reportModel: Model<ReportDocument>,
     @InjectModel(Crisis.name) private crisisModel: Model<CrisisDocument>,
     @InjectModel(Alert.name) private alertModel: Model<AlertDocument>,
-  ) {}
+  ) { }
 
   async getOverview() {
 
@@ -29,14 +29,14 @@ export class StatsService {
 
   async crisisByType() {
 
-    return this.crisisModel.aggregate([
-      {
-        $group: {
-          _id: "$type",
-          total: { $sum: 1 }
-        }
-      }
-    ]);
+  return this.crisisModel.aggregate([
+  {
+    $group: {
+      _id: "$severity",
+      total: { $sum: 1 }
+    }
+  }
+]);
   }
 
   async resolutionTime() {
@@ -47,8 +47,12 @@ export class StatsService {
       },
       {
         $project: {
+          type: "$type",
           resolutionTime: {
-            $subtract: ["$updatedAt", "$createdAt"]
+            $divide: [
+              { $subtract: ["$updatedAt", "$createdAt"] },
+              1000 * 60 * 60
+            ]
           }
         }
       }
