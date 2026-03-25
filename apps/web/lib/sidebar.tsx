@@ -32,5 +32,6 @@ export const sidebarConfig = {
         { label: 'Utilisateurs', icon: Users, href: '/admin/users' },
         { label: 'Stats', icon: BarChart, href: '/admin/stats' },
         { label: 'Signalements', icon: FileText, href: '/admin/reports' },
+        { label: 'Zones', icon: Map, href: '/admin/zones' },
     ],
 }

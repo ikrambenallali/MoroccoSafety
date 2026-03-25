@@ -9,9 +9,10 @@ import { CreateZoneDto } from './dto/create-zone.dto';
 export class ZonesService {
   constructor(
     @InjectModel(Zone.name) private zoneModel: Model<ZoneDocument>
-) {}
+  ) { }
 
   async create(createZoneDto: CreateZoneDto) {
+    console.log(createZoneDto) // 🔥 IMPORTANT
     const zone = new this.zoneModel(createZoneDto);
     return zone.save();
   }
