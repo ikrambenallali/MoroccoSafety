@@ -13,7 +13,7 @@ export default function Sidebar({ role }: Props) {
     const links = sidebarConfig[role]
 
     // Style commun pour le container
-    const sidebarStyles = "w-72 h-screen bg-[#2B3337] border-r border-[#8E1616]/30 shadow-2xl p-6 flex flex-col transition-all duration-300";
+    const sidebarStyles = "w-72 min-h-screen bg-[#2B3337] border-r border-[#8E1616]/30 shadow-2xl p-6 flex flex-col transition-all duration-300";
 
     if (!links || !role) {
         return (
