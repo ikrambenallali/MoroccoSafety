@@ -40,7 +40,7 @@ export class ReportsService {
         const crisis = new this.crisisModel({
             title: 'Incident signalé',
             description: report.description,
-            location: report.location,
+            zone: report.location,
             status: 'SIGNALEE',
             severity: 'MEDIUM',
         });
