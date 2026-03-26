@@ -15,7 +15,8 @@ export class NotificationsGateway {
   server: Server;
 
   sendAlert(alert: any) {
-    this.server.emit('new-alert', alert);
+    console.log('📢 Envoi d\'alerte via socket:', alert);
+    this.server.emit('alert', alert);
   }
 
 }

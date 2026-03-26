@@ -7,29 +7,33 @@ import { NotificationsGateway } from 'src/notifications/notifications.gateway';
 
 @Injectable()
 export class AlertsService {
-constructor(
-  @InjectModel(Alert.name) private alertModel: Model<AlertDocument>,
-  private notificationsGateway: NotificationsGateway
-)  {}
+  constructor(
+    @InjectModel(Alert.name) private alertModel: Model<AlertDocument>,
+    private notificationsGateway: NotificationsGateway
+  ) { }
 
   async create(data: any) {
     const alert = new this.alertModel(data);
     return alert.save();
   }
 
- async sendAlert(id: string) {
-
-  const alert = await this.alertModel.findById(id);
-
-  if (!alert) {
-    throw new Error('Alert not found');
+  async findAll() {
+    return this.alertModel.find().exec();
   }
 
-  alert.sent = true;
-  await alert.save();
+  async sendAlert(id: string) {
+    const alert = await this.alertModel.findById(id);
 
-  this.notificationsGateway.sendAlert(alert);
+    if (!alert) {
+      throw new Error('Alert not found');
+    }
 
-  return alert;
-}
+    alert.sent = true;
+    await alert.save();
+
+    console.log('📢 Envoi d\'alerte via socket:', alert);
+    this.notificationsGateway.sendAlert(alert);
+
+    return alert;
+  }
 }

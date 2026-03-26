@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from '../features/store';
 import { useEffect } from 'react';
 import { getUserProfile, initialize } from '../features/authSlice';
+import { Toaster } from 'sonner';
 
 function InitAuth() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export function Providers({ children }) {
   return (
     <Provider store={store}>
       <InitAuth />
+      <Toaster position="top-right" />
       {children}
     </Provider>
   );

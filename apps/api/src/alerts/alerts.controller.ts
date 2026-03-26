@@ -1,10 +1,15 @@
-import { Controller, Post, Body, Param } from '@nestjs/common';
+import { Controller, Post, Body, Param, Get } from '@nestjs/common';
 import { AlertsService } from './alerts.service';
 
 @Controller('alerts')
 export class AlertsController {
 
-  constructor(private alertsService: AlertsService) {}
+  constructor(private alertsService: AlertsService) { }
+
+  @Get()
+  findAll() {
+    return this.alertsService.findAll();
+  }
 
   @Post()
   create(@Body() body: any) {
