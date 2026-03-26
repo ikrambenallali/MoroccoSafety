@@ -8,7 +8,7 @@ export class MediaService {
 
   constructor(
     @InjectModel(Media.name) private mediaModel: Model<MediaDocument>,
-  ) {}
+  ) { }
 
   async create(file: Express.Multer.File) {
     const media = new this.mediaModel({
@@ -17,6 +17,10 @@ export class MediaService {
       mimetype: file.mimetype,
     });
     return media.save();
+  }
+
+  async findAll() {
+    return this.mediaModel.find().exec();
   }
 
   async findById(id: string) {

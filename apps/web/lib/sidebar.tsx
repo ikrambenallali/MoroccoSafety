@@ -34,5 +34,6 @@ export const sidebarConfig = {
         { label: 'Signalements', icon: FileText, href: '/admin/reports' },
         { label: 'Zones', icon: Map, href: '/admin/zones' },
         {label: 'alerte', icon: AlertTriangle, href: '/admin/alerts' },
+        {label: 'medias', icon: FileText, href: '/admin/media' },
     ],
 }
