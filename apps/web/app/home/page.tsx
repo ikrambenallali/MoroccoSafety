@@ -8,27 +8,32 @@ export default function MoroccoSafetyHome() {
 
 
             {/* Header / Navbar */}
-      <header className="relative z-10 bg-white/10 backdrop-blur-md h-16 flex justify-between items-center px-8  md:px-16">
-        <div className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="MoroccoSafety Logo"
-            width={120}
-            height={50}
-            className="object-contain"
-          />
-        </div>
-        <nav>
-          <ul className="flex gap-8 text-lg font-medium tracking-wide uppercase">
-            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
-            <li className="cursor-pointer hover:text-[#D84040] transition-colors">About</li>
-            <Link href="/signup">
-              <li className="cursor-pointer hover:text-[#D84040] transition-colors">Signup</li>
-            </Link>
-          </ul>
-        </nav>
-      </header>
-        {/* --- 1. NOUVELLE SECTION HERO (1/2 Texte, 1/2 Map.png) --- */}
+            <header className="relative z-10 bg-white/10 backdrop-blur-md h-16 flex justify-between items-center px-8  md:px-16">
+                <div className="flex items-center">
+                    <Image
+                        src="/logo.png"
+                        alt="MoroccoSafety Logo"
+                        width={120}
+                        height={50}
+                        className="object-contain"
+                    />
+                </div>
+                <nav>
+                    <ul className="flex gap-8 text-lg font-medium tracking-wide uppercase">
+                        <Link href="/home">
+                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
+                        </Link>
+
+                        <Link href="/map">
+                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">MAP</li>
+                        </Link>
+                        <Link href="/signup">
+                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Signup</li>
+                        </Link>
+                    </ul>
+                </nav>
+            </header>
+            {/* --- 1. NOUVELLE SECTION HERO (1/2 Texte, 1/2 Map.png) --- */}
             <section className="relative min-h-screen flex items-center  overflow-hidden border-b border-[#8E1616]/20">
                 {/* Background très discret */}
                 <div className="absolute inset-0 z-0 opacity-10">
@@ -46,8 +51,8 @@ export default function MoroccoSafetyHome() {
                         </p>
                         <div className="h-1 w-20 bg-[#8E1616]"></div>
                         <p className="text-lg md:text-xl font-light leading-relaxed text-[#CCCCCC] max-w-xl">
-                            Le Maroc est exposé à diverses catastrophes naturelles : séismes, inondations et incendies. 
-                            <br/><br/>
+                            Le Maroc est exposé à diverses catastrophes naturelles : séismes, inondations et incendies.
+                            <br /><br />
                             <span className="text-white font-bold italic">MoroccoSafety</span> est une plateforme citoyenne conçue pour <strong>donner l'alerte</strong> instantanément. En signalant un incident, vous aidez la communauté et les secours à réagir plus vite.
                         </p>
                         <div className="flex flex-wrap gap-4 pt-4">

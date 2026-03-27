@@ -31,8 +31,13 @@ export default function WelcomePage() {
         </div>
         <nav>
           <ul className="flex gap-8 text-lg font-medium tracking-wide uppercase">
-            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
-            <li className="cursor-pointer hover:text-[#D84040] transition-colors">About</li>
+            <Link href="/home">
+              <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
+            </Link>
+
+            <Link href="/map">
+              <li className="cursor-pointer hover:text-[#D84040] transition-colors">MAP</li>
+            </Link>
             <Link href="/signup">
               <li className="cursor-pointer hover:text-[#D84040] transition-colors">Signup</li>
             </Link>

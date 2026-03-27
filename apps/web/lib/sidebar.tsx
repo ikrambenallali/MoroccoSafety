@@ -27,10 +27,9 @@ export const sidebarConfig = {
     ],
 
     admin: [
-        { label: 'Dashboard', icon: Home, href: '/dashboard' },
+        { label: 'Dashboard', icon: Home, href: '/admin/stats' },
         { label: 'Crises', icon: AlertTriangle, href: '/admin/crisis' },
         { label: 'Utilisateurs', icon: Users, href: '/admin/users' },
-        { label: 'Stats', icon: BarChart, href: '/admin/stats' },
         { label: 'Signalements', icon: FileText, href: '/admin/reports' },
         { label: 'Zones', icon: Map, href: '/admin/zones' },
         {label: 'alerte', icon: AlertTriangle, href: '/admin/alerts' },
