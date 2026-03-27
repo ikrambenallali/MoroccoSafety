@@ -32,7 +32,7 @@ export default function ProfilePage() {
     }
   }
 
-  const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all placeholder:text-white/10 rounded-sm text-sm font-mono";
+  const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-4 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm font-mono";
   const labelStyle = "text-[10px] uppercase tracking-[0.2em] font-black text-[#D84040] mb-2 block";
 
   return (
@@ -46,7 +46,7 @@ export default function ProfilePage() {
               <div className="w-20 h-20 bg-[#2B3337] border-2 border-[#D84040] flex items-center justify-center rounded-sm">
                 <User size={40} className="text-[#D84040]" />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-blue-600 p-1 rounded-full border-2 border-[#1e2427]">
+              <div className="absolute -bottom-2 -right-2 bg-[#D84040] p-1 rounded-full border-2 border-[#1e2427]">
                 <BadgeCheck size={16} className="text-white" />
               </div>
             </div>

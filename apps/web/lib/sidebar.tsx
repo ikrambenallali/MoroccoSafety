@@ -12,6 +12,7 @@ import {
 export const sidebarConfig = {
     citizen: [
         { label: 'Dashboard', icon: Home, href: '/dashboard' },
+        {label :'Crisis' , icon: BarChart, href: '/citoyen/crisis'},
         { label: 'Carte', icon: Map, href: '/map' },
         { label: 'Signaler', icon: AlertTriangle, href: '/reports/new' },
         { label: 'Mes signalements', icon: FileText, href: '/reports' },
