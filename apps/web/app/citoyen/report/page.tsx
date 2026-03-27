@@ -3,16 +3,17 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { createReport } from '@/services/reportService'
-import { 
-  AlertOctagon, 
-  MapPin, 
-  Navigation, 
-  Send, 
-  ChevronDown, 
-  ChevronUp, 
-  Globe,
-  Loader2,
-  CheckCircle2
+import { uploadMedia } from '@/services/mediaService'
+import {
+    AlertOctagon,
+    MapPin,
+    Navigation,
+    Send,
+    ChevronDown,
+    ChevronUp,
+    Globe,
+    Loader2,
+    CheckCircle2
 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -26,6 +27,8 @@ export default function ReportPage() {
     const [loading, setLoading] = useState(false)
     const [locationLoading, setLocationLoading] = useState(false)
     const [error, setError] = useState('')
+    const [file, setFile] = useState<File | null>(null)
+    const [preview, setPreview] = useState<string | null>(null)
 
     const getLocation = () => {
         setLocationLoading(true)
@@ -73,22 +76,38 @@ export default function ReportPage() {
         setLocation({ latitude: lat, longitude: lng })
         setError('')
     }
-
     const handleSubmit = async () => {
         if (!description.trim() || !location) return
+
         setLoading(true)
+
         try {
+            let mediaId = null
+
+            // 📸 upload image d'abord
+            if (file) {
+                const media = await uploadMedia(file)
+                mediaId = media._id
+            }
+
             const reportData = {
                 description: description.trim(),
                 location: {
                     type: 'Point',
                     coordinates: [location.longitude, location.latitude]
-                }
+                },
+                mediaId // 👈 important
             }
+
             await createReport(reportData, token)
+
             setDescription('')
             setLocation(null)
-            toast.success("Signalement transmis aux autorités")
+            setFile(null)
+            setPreview(null)
+
+            toast.success("Signalement transmis avec succès 🚀")
+
         } catch (err: any) {
             setError(err.response?.data?.message || 'Échec de la transmission')
         } finally {
@@ -99,7 +118,7 @@ export default function ReportPage() {
     return (
         <div className="p-4 md:p-8 bg-[#2B3337] min-h-screen flex items-center justify-center">
             <div className="w-full max-w-xl bg-[#1e2427] border border-[#8E1616]/30 shadow-2xl rounded-sm overflow-hidden">
-                
+
                 {/* Header d'alerte */}
                 <div className="bg-[#8E1616] p-6 flex items-center gap-4">
                     <div className="bg-white/20 p-3 rounded-full animate-pulse">
@@ -160,15 +179,14 @@ export default function ReportPage() {
 
                             <button
                                 onClick={() => setUseManualLocation(!useManualLocation)}
-                                className={`flex-1 flex items-center justify-center gap-3 border py-4 px-6 transition-all ${
-                                    useManualLocation ? 'bg-[#D84040] border-[#D84040]' : 'bg-transparent border-white/10'
-                                }`}
+                                className={`flex-1 flex items-center justify-center gap-3 border py-4 px-6 transition-all ${useManualLocation ? 'bg-[#D84040] border-[#D84040]' : 'bg-transparent border-white/10'
+                                    }`}
                             >
                                 <Globe size={18} className="text-white" />
                                 <span className="text-[10px] font-black uppercase tracking-widest text-white">
                                     Saisie Manuelle
                                 </span>
-                                {useManualLocation ? <ChevronUp size={14}/> : <ChevronDown size={14}/>}
+                                {useManualLocation ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                             </button>
                         </div>
 
@@ -211,7 +229,32 @@ export default function ReportPage() {
                             </div>
                         )}
                     </div>
+                    <div className="space-y-2">
+                        <label className="text-[10px] uppercase font-black text-[#D84040] tracking-widest">
+                            Photo (optionnel)
+                        </label>
 
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                                const selectedFile = e.target.files?.[0]
+                                if (selectedFile) {
+                                    setFile(selectedFile)
+                                    setPreview(URL.createObjectURL(selectedFile))
+                                }
+                            }}
+                            className="text-white text-xs"
+                        />
+
+                        {preview && (
+                            <img
+                                src={preview}
+                                alt="preview"
+                                className="w-full h-40 object-cover border border-white/10"
+                            />
+                        )}
+                    </div>
                     {/* Submit Button */}
                     <button
                         onClick={handleSubmit}

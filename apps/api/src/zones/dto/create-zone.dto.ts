@@ -16,4 +16,5 @@ export class CreateZoneDto {
     type: 'Polygon';
     coordinates: number[][][];
   };
+  mediaId?: string;
 }

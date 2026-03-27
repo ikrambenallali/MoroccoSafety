@@ -1,6 +1,6 @@
 // zones.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import { Document, ObjectId, Types } from 'mongoose';
 
 export type ZoneDocument = Zone & Document;
 
@@ -28,6 +28,7 @@ export class Zone {
     type: string;
     coordinates: number[][][];
   };
+  mediaId: { type: ObjectId, ref: 'Media' }
 }
 
 export const ZoneSchema = SchemaFactory.createForClass(Zone);
