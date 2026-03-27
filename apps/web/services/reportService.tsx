@@ -36,3 +36,13 @@ export const rejectReport = async (id: string) => {
   )
   return res.data
 }
+
+export const createReport = async (data: any, token: string) => {
+  const res = await axios.post(API, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+
+  return res.data
+}
