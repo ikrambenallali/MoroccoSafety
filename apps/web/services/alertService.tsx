@@ -32,3 +32,8 @@ export const getAlerts = async () => {
   const res = await axios.get(API, getAuthHeaders())
   return res.data
 }
+
+export const getSentAlerts = async () => {
+  const res = await axios.get(`${API}/sent`, getAuthHeaders())
+  return res.data
+}

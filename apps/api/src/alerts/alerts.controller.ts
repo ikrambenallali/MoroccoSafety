@@ -21,4 +21,9 @@ export class AlertsController {
     return this.alertsService.sendAlert(id);
   }
 
+  @Get('sent')
+  findSent() {
+    return this.alertsService.findSentAlerts();
+  }
+
 }

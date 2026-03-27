@@ -16,6 +16,7 @@ export const sidebarConfig = {
         { label: 'Carte', icon: Map, href: '/map' },
         { label: 'Signaler', icon: AlertTriangle, href: '/citoyen/report' },
         { label: 'Zones', icon: FileText, href: '/citoyen/zones' },
+        { label: 'notifications', icon: AlertTriangle, href: '/citoyen/notifications' },
         { label: 'Profil', icon: Settings, href: '/profile' },
     ],
 
