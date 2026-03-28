@@ -32,7 +32,6 @@ export default function CreateCrisis() {
             }
         }
         await createCrisis(data)
-        router.push('/admin/crisis')
     }
 
     const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-3 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm";
