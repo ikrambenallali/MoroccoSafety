@@ -21,7 +21,7 @@ export class ReportsController {
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.AUTHORITY)
   @Get()
 
   findAll() {

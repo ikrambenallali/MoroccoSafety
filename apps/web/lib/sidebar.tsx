@@ -24,8 +24,8 @@ export const sidebarConfig = {
         { label: 'Dashboard', icon: Home, href: '/dashboard' },
         { label: 'Carte', icon: Map, href: '/map' },
         { label: 'Crises', icon: AlertTriangle, href: '/authority/crisis' },
-        { label: 'Alertes', icon: FileText, href: '/alerts' },
-        { label: 'Signalements', icon: FileText, href: '/reports' },
+        { label: 'alerte', icon: AlertTriangle, href: '/admin/alerts' },
+        { label: 'Signalements', icon: FileText, href: '/admin/reports' },
         { label: 'Profil', icon: Settings, href: '/profile' },
 
     ],
