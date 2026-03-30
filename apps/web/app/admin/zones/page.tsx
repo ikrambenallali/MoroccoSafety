@@ -42,7 +42,7 @@ export default function ZonesPage() {
 
             {/* TABLEAU DES ZONES */}
             <div className="overflow-x-auto rounded-sm border border-[#8E1616]/20 bg-[#1e2427] shadow-2xl">
-                <table className="w-full min-w-[800px] text-left border-collapse">
+                <table className="w-full min-w-200 text-left border-collapse">
                     <thead>
                         <tr className="bg-[#8E1616]/10 text-white uppercase text-[10px] tracking-[0.2em] border-b border-[#8E1616]/20">
                             <th className="p-5 font-black">Nom du Secteur</th>

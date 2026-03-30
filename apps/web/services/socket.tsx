@@ -1,10 +1,12 @@
 import { io } from 'socket.io-client'
 
-export const socket = io('http://localhost:3000', {
+const SOCKET_URL = 'http://localhost:3000'
+
+export const socket = io(SOCKET_URL, {
     autoConnect: true,
 })
 
-// 🔌 DEBUGGING - Vérifier la connexion Socket
+// 🔌 DEBUGGING
 socket.on('connect', () => {
     console.log('✅ Socket connecté:', socket.id)
 })
@@ -26,7 +28,7 @@ export const testSocketConnection = () => {
     console.log('🔌 État de connexion:', {
         connected: socket.connected,
         id: socket.id,
-        url: socket.io.uri,
+        url: SOCKET_URL, // ✅ ici
     })
     return socket.connected
 }

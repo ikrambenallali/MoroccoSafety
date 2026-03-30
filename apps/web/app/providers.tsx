@@ -23,7 +23,7 @@ function InitAuth() {
   return null;
 }
 
-export function Providers({ children }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <InitAuth />

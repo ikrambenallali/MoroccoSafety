@@ -9,17 +9,19 @@ export function useSocket() {
 
     useEffect(() => {
         // Vérifier l'état au montage
-        if (socket.connected) {
+        if (socket.connected && socket.id) {
             setIsConnected(true)
             setSocketId(socket.id)
-            console.log('✅ Socket déjà connecté:', socket.id)
         }
 
         // Écouter les événements de connexion
         socket.on('connect', () => {
             console.log('✅ Socket connecté:', socket.id)
             setIsConnected(true)
-            setSocketId(socket.id)
+
+            if (socket.id) {
+                setSocketId(socket.id)
+            }
         })
 
         socket.on('disconnect', () => {

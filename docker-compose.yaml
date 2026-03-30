@@ -1,0 +1,50 @@
+services:
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root  
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: moroccosafety_api
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://root:example@mongo:27017/moroccosafety?authSource=admin
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/api:/app
+    command: ["npm","run","start"]
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: moroccosafety_web
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      PORT: 3001
+      NEXT_PUBLIC_API_URL: http://api:3000
+      NODE_ENV: production
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/web:/app
+    command: ["npm","run","start"]
+
+volumes:
+  mongo_data:

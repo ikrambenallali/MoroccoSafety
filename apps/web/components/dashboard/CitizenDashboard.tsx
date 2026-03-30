@@ -8,22 +8,21 @@ import { AlertTriangle, Bell, X, ShieldAlert } from 'lucide-react'
 export default function CitizenDashboard() {
   useEffect(() => {
     socket.on('alert', (data) => {
-      // DESIGN PERSONNALISÉ DU TOAST
       toast.custom((t) => (
-        <div className="w-[380px] bg-[#1e2427] border-l-4 border-[#D84040] shadow-2xl p-4 flex gap-4 animate-in slide-in-from-right-full border border-white/5 relative">
-          {/* Icône d'alerte pulsante */}
-          <div className="flex-shrink-0 flex items-center justify-center">
+        <div className="w-95 bg-[#1e2427] border-l-4 border-[#D84040] shadow-2xl p-4 flex gap-4 animate-in slide-in-from-right-full border  relative">
+          
+          <div className="shrink-0 flex items-center justify-center">
             <div className="w-12 h-12 bg-[#D84040]/20 rounded-full flex items-center justify-center animate-pulse">
               <ShieldAlert className="text-[#D84040]" size={28} />
             </div>
           </div>
 
-          {/* Contenu du message */}
           <div className="flex-1">
             <div className="flex justify-between items-start">
-              <h3 className="text-[#D84040] font-black uppercase tracking-tighter text-sm italic">
+              <h3 className="text-[#D84040] font-black uppercase tracking-wide italic text-sm">
                 Alerte de Sécurité
               </h3>
+
               <button 
                 onClick={() => toast.dismiss(t)} 
                 className="text-white/20 hover:text-white transition-colors"
@@ -41,19 +40,19 @@ export default function CitizenDashboard() {
             </p>
 
             <div className="mt-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-[#D84040] rounded-full animate-ping"></span>
-                <span className="text-[9px] text-[#D84040] font-black uppercase tracking-[0.2em]">Diffusion Immédiate</span>
+              <span className="w-1.5 h-1.5 bg-[#D84040] rounded-full animate-ping"></span>
+              <span className="text-[10px] text-[#D84040] font-black uppercase tracking-widest">
+                Diffusion Immédiate
+              </span>
             </div>
           </div>
         </div>
       ), {
-        duration: 15000, // On l'affiche un peu plus longtemps (15s)
+        duration: 15000,
         position: 'top-right',
       })
     })
 
-    // ... tes autres listeners (connect, disconnect)
-    
     return () => {
       socket.off('alert')
     }
@@ -65,34 +64,43 @@ export default function CitizenDashboard() {
     <div className="p-8 bg-[#2B3337] min-h-screen">
       <div className="mb-10 border-b border-[#8E1616]/30 pb-6">
         <h1 className="text-4xl font-serif font-bold text-white tracking-tighter italic uppercase">
-            Tableau de Bord Citoyen
+          Tableau de Bord Citoyen
         </h1>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-[#D84040] font-bold mt-1">
-            Statut de surveillance : <span className="text-green-500">Connecté</span>
+
+        <p className="text-xs uppercase tracking-widest text-[#D84040] font-bold mt-1">
+          Statut de surveillance : <span className="text-green-500">Connecté</span>
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
         <div className={cardStyle}>
           <div className="p-4 bg-[#D84040]/10 text-[#D84040] rounded-full group-hover:bg-[#D84040] group-hover:text-white transition-all">
-             <AlertTriangle size={32} />
+            <AlertTriangle size={32} />
           </div>
-          <span className="text-xs font-black uppercase tracking-widest text-white">Carte des crises</span>
+          <span className="text-xs font-black uppercase tracking-widest text-white">
+            Carte des crises
+          </span>
         </div>
 
         <div className={cardStyle}>
           <div className="p-4 bg-[#D84040]/10 text-[#D84040] rounded-full group-hover:bg-[#D84040] group-hover:text-white transition-all">
-             <Bell size={32} />
+            <Bell size={32} />
           </div>
-          <span className="text-xs font-black uppercase tracking-widest text-white">Alertes récentes</span>
+          <span className="text-xs font-black uppercase tracking-widest text-white">
+            Alertes récentes
+          </span>
         </div>
 
         <div className={cardStyle}>
           <div className="p-4 bg-blue-600/10 text-blue-500 rounded-full group-hover:bg-blue-600 group-hover:text-white transition-all">
-             <ShieldAlert size={32} />
+            <ShieldAlert size={32} />
           </div>
-          <span className="text-xs font-black uppercase tracking-widest text-white text-blue-500">Signaler un incident</span>
+          <span className="text-xs font-black uppercase tracking-widest text-blue-500">
+            Signaler un incident
+          </span>
         </div>
+
       </div>
     </div>
   )

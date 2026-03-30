@@ -7,19 +7,19 @@ export type AlertDocument = Alert & Document;
 export class Alert {
 
   @Prop({ required: true })
-  title: string;
+  title!: string;
 
   @Prop({ required: true })
-  message: string;
+  message!: string;
 
   @Prop({ type: Types.ObjectId, ref: 'Crisis' })
-  crisisId: string;
+  crisisId!: string;
 
   @Prop()
-  zone: string; // ex: "Oujda", "Rabat"
+  zone!: string; // ex: "Oujda", "Rabat"
 
   @Prop({ default: false })
-  sent: boolean;
+  sent!: boolean;
 }
 
 export const AlertSchema = SchemaFactory.createForClass(Alert);

@@ -7,10 +7,10 @@ export type ZoneDocument = Zone & Document;
 @Schema()
 export class Zone {
   @Prop({ required: true })
-  name: string;
+  name!: string;
 
   @Prop({ type: Types.ObjectId, ref: 'Crisis' })
-  crisisId: string;
+  crisisId! : string;
 
   // GeoJSON Polygon
   @Prop({
@@ -24,11 +24,11 @@ export class Zone {
       required: true,
     },
   })
-  geometry: {
+  geometry!: {
     type: string;
     coordinates: number[][][];
   };
-  mediaId: { type: ObjectId, ref: 'Media' }
+  mediaId!: { type: ObjectId, ref: 'Media' }
 }
 
 export const ZoneSchema = SchemaFactory.createForClass(Zone);

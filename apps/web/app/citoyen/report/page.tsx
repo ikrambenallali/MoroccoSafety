@@ -50,7 +50,7 @@ export default function ReportPage() {
                 toast.success("Position GPS verrouillée")
             },
             (err) => {
-                let errorMessage = '📍 Erreur : '
+                let errorMessage = ' Erreur : '
                 switch (err.code) {
                     case err.PERMISSION_DENIED: errorMessage += 'Permission refusée'; break
                     case err.POSITION_UNAVAILABLE: errorMessage += 'GPS indisponible'; break
@@ -151,7 +151,7 @@ export default function ReportPage() {
                             placeholder="Nature de l'urgence, blessés, dangers immédiats..."
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            className="w-full bg-black/30 border border-white/10 p-4 text-white placeholder:text-white/10 focus:border-[#D84040] outline-none transition-all rounded-sm min-h-[120px] text-sm italic"
+                            className="w-full bg-black/30 border border-white/10 p-4 text-white placeholder:text-white/10 focus:border-[#D84040] outline-none transition-all rounded-sm min-h-30 text-sm italic"
                         />
                     </div>
 

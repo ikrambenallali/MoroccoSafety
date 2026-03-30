@@ -12,7 +12,7 @@ import { Server } from 'socket.io';
 export class NotificationsGateway {
 
   @WebSocketServer()
-  server: Server;
+  server!: Server;
 
   sendAlert(alert: any) {
     console.log('📢 Envoi d\'alerte via socket:', alert);

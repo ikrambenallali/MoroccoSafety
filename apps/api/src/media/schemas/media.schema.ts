@@ -7,13 +7,13 @@ export type MediaDocument = Media & Document;
 export class Media {
 
   @Prop({ required: true })
-  filename: string;
+  filename!: string;
 
   @Prop({ required: true })
-  path: string;
+  path!: string;
 
   @Prop()
-  mimetype: string;
+  mimetype!: string;
 
 }
 

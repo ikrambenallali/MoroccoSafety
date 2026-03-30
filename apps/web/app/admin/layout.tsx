@@ -5,7 +5,13 @@ import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 import { useAuth } from '@/hooks/useAuth'
 
-export default function DashboardLayout({ children }) {
+import { ReactNode } from 'react'
+
+interface DashboardLayoutProps {
+  children: ReactNode
+}
+
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const { user, isInitialized } = useAuth()
 
   if (!isInitialized) {

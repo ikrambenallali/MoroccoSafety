@@ -7,13 +7,13 @@ import { sidebarConfig } from '@/lib/sidebar'
 type Props = {
     role: 'citizen' | 'authority' | 'admin' | undefined
 }
+type UserRole = 'citizen' | 'authority' | 'admin'
 
 export default function Sidebar({ role }: Props) {
     const pathname = usePathname()
-    const links = sidebarConfig[role]
-
+    const links = role ? sidebarConfig[role] : undefined
     // Style commun pour le container
-const sidebarStyles = "w-72 min-h-screen bg-[#1e2427] border-r-2 border-[#D84040] shadow-[4px_0_24px_rgba(216,64,64,0.4)] p-6 flex flex-col transition-all duration-300";
+    const sidebarStyles = "w-72 min-h-screen bg-[#1e2427] border-r-2 border-[#D84040] shadow-[4px_0_24px_rgba(216,64,64,0.4)] p-6 flex flex-col transition-all duration-300";
 
     if (!links || !role) {
         return (
@@ -43,7 +43,7 @@ const sidebarStyles = "w-72 min-h-screen bg-[#1e2427] border-r-2 border-[#D84040
             {/* Navigation */}
             <nav className="flex-1 space-y-3">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-[#CCCCCC]/40 font-bold px-3 mb-4">Menu Principal</p>
-                
+
                 {links.map((item, index) => {
                     const Icon = item.icon
                     const isActive = pathname === item.href
@@ -58,14 +58,14 @@ const sidebarStyles = "w-72 min-h-screen bg-[#1e2427] border-r-2 border-[#D84040
                                     : 'text-[#CCCCCC] hover:bg-white/5 hover:text-white'
                                 }`}
                         >
-                            <Icon 
-                                size={20} 
-                                className={`${isActive ? 'text-[#D84040]' : 'text-[#CCCCCC]/60 group-hover:text-[#D84040]'} transition-colors`} 
+                            <Icon
+                                size={20}
+                                className={`${isActive ? 'text-[#D84040]' : 'text-[#CCCCCC]/60 group-hover:text-[#D84040]'} transition-colors`}
                             />
                             <span className="text-sm font-bold uppercase tracking-widest leading-none">
                                 {item.label}
                             </span>
-                            
+
                             {/* Petit indicateur visuel en hover */}
                             {!isActive && (
                                 <div className="absolute right-4 w-1 h-1 bg-[#D84040] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>

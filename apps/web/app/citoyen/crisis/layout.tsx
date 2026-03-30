@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 import { useAuth } from '@/hooks/useAuth'
 
-export default function DashboardLayout({ children }) {
-  const { user, isInitialized } = useAuth()
+export default function DashboardLayout({ children }: { children: React.ReactNode }) { 
+     const { user, isInitialized } = useAuth()
 
   if (!isInitialized) {
     return <div>Loading...</div>

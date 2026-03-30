@@ -50,7 +50,7 @@ export default function CrisisMap() {
     <div className="relative h-full w-full bg-[#1e2427] overflow-hidden">
       
       {/* OVERLAY TACTIQUE : HEADER DE CARTE */}
-      <div className="absolute z-[1000] top-6 left-6 right-6 flex justify-between items-start pointer-events-none">
+      <div className="absolute z-1000 top-6 left-6 right-6 flex justify-between items-start pointer-events-none">
         <div className="bg-[#1e2427]/90 backdrop-blur-md border border-[#D84040]/30 p-4 shadow-2xl pointer-events-auto">
             <h2 className="text-white font-serif font-bold italic uppercase tracking-tighter flex items-center gap-3">
                 <ShieldAlert className="text-[#D84040]" size={20} />
@@ -75,7 +75,7 @@ export default function CrisisMap() {
 
       {/* INDICATEURS D'ÉTAT */}
       {loading && (
-        <div className="absolute z-[2000] inset-0 bg-[#1e2427]/80 backdrop-blur-sm flex items-center justify-center">
+        <div className="absolute z-2000 inset-0 bg-[#1e2427]/80 backdrop-blur-sm flex items-center justify-center">
             <div className="text-center">
                 <div className="w-16 h-16 border-4 border-[#D84040] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                 <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white">Synchronisation satellite...</p>
@@ -107,7 +107,7 @@ export default function CrisisMap() {
       </div>
 
       {/* LEGENDE EN BAS A GAUCHE */}
-      <div className="absolute z-[1000] bottom-8 left-8 bg-[#1e2427]/95 border-l-4 border-[#D84040] p-4 shadow-2xl">
+      <div className="absolute z-1000 bottom-8 left-8 bg-[#1e2427]/95 border-l-4 border-[#D84040] p-4 shadow-2xl">
         <p className="text-[10px] font-black uppercase tracking-widest text-white mb-2">Légende des Alertes</p>
         <div className="space-y-2">
             <div className="flex items-center gap-3">

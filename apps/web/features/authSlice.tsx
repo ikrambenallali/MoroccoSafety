@@ -1,6 +1,28 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
+
+type User = {
+  id: string
+  role: 'citizen' | 'authority' | 'admin'
+  email?: string
+}
+
+type AuthState = {
+  user: User | null
+  token: string | null
+  loading: boolean
+  isInitialized: boolean
+  error: any
+}
+
+const initialState: AuthState = {
+  user: null,
+  token: null,
+  loading: false,
+  isInitialized: false,
+  error: null
+}
 const API = 'http://localhost:3000/auth';
 
 // 🔥 REGISTER
@@ -11,7 +33,7 @@ export const registerUser = createAsyncThunk(
       const res = await axios.post(`${API}/register`, data);
       return res.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+      return thunkAPI.rejectWithValue((err as AxiosError).response?.data);
     }
   }
 );
@@ -24,7 +46,7 @@ export const loginUser = createAsyncThunk(
       const res = await axios.post(`${API}/login`, data);
       return res.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+      return thunkAPI.rejectWithValue((err as AxiosError).response?.data);
     }
   }
 );
@@ -41,19 +63,14 @@ export const getUserProfile = createAsyncThunk(
       });
       return res.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+      return thunkAPI.rejectWithValue((err as AxiosError).response?.data);
     }
   }
 );
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    user: null,
-    token: null,
-    loading: false,
-    isInitialized: false, // Track if initial auth check is done
-  },
+  initialState,
   reducers: {
     logout: (state) => {
       state.user = null;

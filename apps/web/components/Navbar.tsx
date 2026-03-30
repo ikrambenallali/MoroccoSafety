@@ -34,7 +34,7 @@ export default function Navbar() {
                     <span className="absolute top-1 right-1 w-2 h-2 bg-[#8E1616] border-2 border-[#D84040] rounded-full"></span>
                 </button>
 
-                <div className="h-8 w-[1px] bg-white/20 mx-2"></div>
+                <div className="h-8 w-px bg-white/20 mx-2"></div>
 
                 {/* Bouton Logout Amélioré */}
                 <button

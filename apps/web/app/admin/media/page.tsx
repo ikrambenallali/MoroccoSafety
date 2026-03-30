@@ -100,7 +100,7 @@ export default function MediaPage() {
                             {uploadedMedias.length} UNITÉS
                         </span>
                     </h2>
-                    <div className="h-[1px] flex-1 bg-[#8E1616]/20 ml-6"></div>
+                    <div className="h-px flex-1 bg-[#8E1616]/20 ml-6"></div>
                 </div>
 
                 {uploadedMedias.length === 0 ? (
@@ -116,7 +116,7 @@ export default function MediaPage() {
                                     <img
                                         src={media.url}
                                         alt={media.filename}
-                                        className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                                        className="w-full h-full object-cover grayscale-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                                         onError={(e) => {
                                             const img = e.target as HTMLImageElement;
                                             img.src = 'https://via.placeholder.com/400x400?text=IMAGE+NOT+FOUND';

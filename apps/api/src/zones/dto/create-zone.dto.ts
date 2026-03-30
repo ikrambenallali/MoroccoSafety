@@ -4,15 +4,15 @@ import { IsNotEmpty, IsString, IsMongoId, IsObject } from 'class-validator';
 export class CreateZoneDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  name!: string;
 
   @IsNotEmpty()
   @IsMongoId()
-  crisisId: string;
+  crisisId!: string;
 
   @IsNotEmpty()
   @IsObject()
-  geometry: {
+  geometry!: {
     type: 'Polygon';
     coordinates: number[][][];
   };
