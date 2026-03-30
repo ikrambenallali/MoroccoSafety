@@ -2,6 +2,7 @@ services:
   # Backend API (NestJS)
   - type: web
     name: morocco-safety-api
+    plan: free
     runtime: docker
     dockerContext: ./apps/api
     dockerfilePath: ./Dockerfile
@@ -19,6 +20,7 @@ services:
   # Frontend Web (Next.js)
   - type: web
     name: morocco-safety-web
+    plan: free
     runtime: docker
     dockerContext: ./apps/web
     dockerfilePath: ./Dockerfile
