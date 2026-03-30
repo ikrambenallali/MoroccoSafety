@@ -3,27 +3,30 @@ services:
   - type: web
     name: morocco-safety-api
     plan: free
-    runtime: docker
-    dockerContext: ./apps/api
-    dockerfilePath: ./Dockerfile
+    runtime: node
+    rootDir: apps/api
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
     envVars:
       - key: MONGO_URI
-        sync: false # Set this in Render Dashboard (e.g. from MongoDB Atlas)
+        sync: false
       - key: JWT_SECRET
         generateValue: true
       - key: PORT
         value: 10000
       - key: NODE_ENV
         value: production
-    healthCheckPath: /api # Adjust if you have a health endpoint
+      - key: NODE_VERSION
+        value: 20
 
   # Frontend Web (Next.js)
   - type: web
     name: morocco-safety-web
     plan: free
-    runtime: docker
-    dockerContext: ./apps/web
-    dockerfilePath: ./Dockerfile
+    runtime: node
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
     envVars:
       - key: NEXT_PUBLIC_API_URL
         fromService:
@@ -34,3 +37,5 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: NODE_VERSION
+        value: 20
