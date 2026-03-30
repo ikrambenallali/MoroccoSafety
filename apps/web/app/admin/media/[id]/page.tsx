@@ -3,6 +3,7 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, Download, Trash2 } from 'lucide-react'
+import { API_URL } from '@/utils/constants'
 
 export default function MediaDetailsPage() {
     const { id } = useParams()
@@ -13,7 +14,7 @@ export default function MediaDetailsPage() {
     useEffect(() => {
         const fetchMedia = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/media/${id}`)
+                const res = await fetch(`${API_URL}/media/${id}`)
                 if (res.ok) {
                     const data = await res.json()
                     setMedia(data)
@@ -64,7 +65,7 @@ export default function MediaDetailsPage() {
             <div className="bg-[#1e2427] border border-[#8E1616]/20 rounded-lg overflow-hidden shadow-2xl max-w-4xl">
                 <div className="aspect-video bg-black flex items-center justify-center">
                     <img
-                        src={`http://localhost:3000/uploads/${media.filename}`}
+                        src={`${API_URL}/uploads/${media.filename}`}
                         alt={media.filename}
                         className="max-w-full max-h-full object-contain"
                     />

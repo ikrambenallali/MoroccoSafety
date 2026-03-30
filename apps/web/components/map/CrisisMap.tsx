@@ -5,6 +5,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 import L from 'leaflet'
 import CrisisMarker from './CrisisMarker'
 import { ShieldAlert, Layers, Filter } from 'lucide-react'
+import { API_URL } from '@/utils/constants'
 
 const moroccoBounds = L.latLngBounds(
   [21.0, -17.0], 
@@ -23,7 +24,7 @@ export default function CrisisMap() {
     const controller = new AbortController()
     const loadCrises = async () => {
       try {
-        const response = await fetch('http://localhost:3000/crisis', {
+        const response = await fetch(`${API_URL}/crisis`, {
           signal: controller.signal,
         })
         if (!response.ok) throw new Error(`Échec /crisis ${response.status}`)

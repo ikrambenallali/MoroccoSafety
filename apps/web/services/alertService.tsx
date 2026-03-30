@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { API_URL } from '../utils/constants'
 
-const API = 'http://localhost:3000/alerts'
+const API = `${API_URL}/alerts`
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token')

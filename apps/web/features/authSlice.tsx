@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { API_URL } from '../utils/constants';
 
 
 type User = {
@@ -23,7 +24,7 @@ const initialState: AuthState = {
   isInitialized: false,
   error: null
 }
-const API = 'http://localhost:3000/auth';
+const API = `${API_URL}/auth`;
 
 // 🔥 REGISTER
 export const registerUser = createAsyncThunk(

@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { API_URL } from '../utils/constants'
 
-const API = 'http://localhost:3000/media'
+const API = `${API_URL}/media`
 
 // 📤 upload file
 export const uploadMedia = async (file: File) => {

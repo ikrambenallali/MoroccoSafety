@@ -2,6 +2,7 @@
 
 import { useSocket } from '@/hooks/useSocket'
 import { Circle } from 'lucide-react'
+import { API_URL } from '@/utils/constants'
 
 export default function SocketDebug() {
     const { isConnected, socketId } = useSocket()
@@ -23,7 +24,7 @@ export default function SocketDebug() {
                     <span className="text-gray-400">ID:</span> {socketId || 'waiting...'}
                 </div>
                 <div>
-                    <span className="text-gray-400">URL:</span> http://localhost:3000
+                    <span className="text-gray-400">URL:</span> {API_URL}
                 </div>
                 <div>
                     <span className="text-gray-400">Status:</span>{' '}
