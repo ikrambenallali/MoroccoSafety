@@ -5,9 +5,6 @@ on:
     branches: [main, ci/cd]
   pull_request:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -25,11 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
-        run: npm run lint || echo "No lint"
+      - name: Lint API
+        run: npm --workspace apps/api run lint || echo "No lint"
 
-      - name: Test
-        run: npm test || echo "No tests"
+      - name: Test API
+        run: npm --workspace apps/api test || echo "No tests"
 
-      - name: Build
-        run: npm run build
+      - name: Build API
+        run: npm --workspace apps/api run build
+
+      - name: Build Web
+        run: npm --workspace apps/web run build
