@@ -17,24 +17,21 @@ import { StatsModule } from './stats/stats.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.MONGO_URI!, {
-      connectionFactory: (connection) => {
-        console.log('✅ MongoDB connected:', connection.name);
-        return connection;
-      },
-    }),
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    UsersModule,
-    AuthModule,
-    CrisisModule,
-    ZonesModule,
-    ReportsModule,
-    MediaModule,
-    AlertsModule,
-    NotificationsModule,
-    StatsModule,
+    // MongooseModule.forRoot(process.env.MONGODB_URI!, {
+    //   connectionFactory: (connection) => {
+    //     console.log('✅ MongoDB connected:', connection.name);
+    //     return connection;
+    //   },
+    // }),
+    // UsersModule,
+    // AuthModule,
+    // CrisisModule,
+    // ZonesModule,
+    // ReportsModule,
+    // MediaModule,
+    // AlertsModule,
+    // NotificationsModule,
+    // StatsModule,
 
 
   ],
