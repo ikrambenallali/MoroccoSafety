@@ -9,15 +9,15 @@ import {
 import { FileText, CheckCircle, XCircle, User, Clock, AlertTriangle } from 'lucide-react'
 
 const STATUS_STYLES: Record<string, string> = {
-  pending:  'text-[#D84040] bg-[#D84040]/10 border border-[#D84040]/30',
-  validated:'text-emerald-400 bg-emerald-400/10 border border-emerald-400/30',
+  pending: 'text-[#D84040] bg-[#D84040]/10 border border-[#D84040]/30',
+  validated: 'text-emerald-400 bg-emerald-400/10 border border-emerald-400/30',
   rejected: 'text-[#CCCCCC]/40 bg-[#CCCCCC]/5 border border-[#CCCCCC]/10',
 }
 
 const STATUS_LABELS: Record<string, string> = {
-  pending:   'En attente',
+  pending: 'En attente',
   validated: 'Validé',
-  rejected:  'Rejeté',
+  rejected: 'Rejeté',
 }
 
 export default function ReportsPage() {
@@ -52,16 +52,16 @@ export default function ReportsPage() {
 
       {/* Header */}
       <div className="border-b border-[#8E1616]/30 pb-6">
-        <h1 className="text-4xl font-serif font-bold text-white tracking-tighter italic uppercase flex items-center gap-4">
+        <h1 className="text-4xl font-serif font-bold text-white tracking-tighter     flex items-center gap-4">
           <FileText className="text-[#D84040]" size={36} />
           Rapports Citoyens
         </h1>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-[#D84040] font-bold mt-1">
+        <p className="text-[10px]   tracking-[0.3em] text-[#D84040] font-bold mt-1">
           Centre de monitoring national — Gestion des signalements
         </p>
       </div>
 
-   
+
 
       {/* Table */}
       <div className="bg-[#1e2427] border border-[#8E1616]/20 shadow-2xl overflow-hidden">
@@ -71,7 +71,7 @@ export default function ReportsPage() {
           {['Utilisateur', 'Description', 'Statut', 'Actions'].map((col) => (
             <span
               key={col}
-              className="text-[9px] uppercase tracking-[0.3em] font-black text-[#CCCCCC]/40"
+              className="text-[9px]   tracking-[0.3em] font-black text-[#CCCCCC]/40"
             >
               {col}
             </span>
@@ -82,7 +82,7 @@ export default function ReportsPage() {
         {reports.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3 opacity-30">
             <AlertTriangle size={28} className="text-[#D84040]" />
-            <p className="text-[11px] uppercase tracking-widest font-black">Aucun rapport disponible</p>
+            <p className="text-[11px]   tracking-widest font-black">Aucun rapport disponible</p>
           </div>
         ) : (
           reports.map((r: any, index: number) => {
@@ -118,7 +118,7 @@ export default function ReportsPage() {
 
                 {/* Status badge */}
                 <div>
-                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-black rounded-sm ${statusStyle}`}>
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px]   tracking-[0.2em] font-black rounded-sm ${statusStyle}`}>
                     <Clock size={9} />
                     {statusLabel}
                   </span>
@@ -131,7 +131,7 @@ export default function ReportsPage() {
                     disabled={isLoading || statusKey === 'validated'}
                     className="
                       flex items-center gap-1.5 px-3 py-1.5
-                      text-[9px] uppercase tracking-[0.2em] font-black
+                      text-[9px]   tracking-[0.2em] font-black
                       text-emerald-400 border border-emerald-400/30
                       hover:bg-emerald-400/10 hover:border-emerald-400/60
                       disabled:opacity-20 disabled:cursor-not-allowed
@@ -147,7 +147,7 @@ export default function ReportsPage() {
                     disabled={isLoading || statusKey === 'rejected'}
                     className="
                       flex items-center gap-1.5 px-3 py-1.5
-                      text-[9px] uppercase tracking-[0.2em] font-black
+                      text-[9px]   tracking-[0.2em] font-black
                       text-[#D84040] border border-[#D84040]/30
                       hover:bg-[#D84040]/10 hover:border-[#D84040]/60
                       disabled:opacity-20 disabled:cursor-not-allowed
@@ -167,7 +167,7 @@ export default function ReportsPage() {
       {/* Footer décoratif */}
       <div className="flex justify-center items-center gap-4 opacity-20">
         <div className="h-[1px] w-20 bg-[#D84040]" />
-        <span className="text-[10px] font-black uppercase tracking-[0.5em]">Reports Module: Active</span>
+        <span className="text-[10px] font-black   tracking-[0.5em]">Reports Module: Active</span>
         <div className="h-[1px] w-20 bg-[#D84040]" />
       </div>
 

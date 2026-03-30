@@ -38,15 +38,15 @@ export default function MediaPage() {
 
     return (
         <div className="p-8 bg-[#2B3337] min-h-screen text-[#CCCCCC]">
-            
+
             {/* Header Section */}
             <div className="flex justify-between items-center mb-10 border-b border-[#8E1616]/30 pb-6">
                 <div>
-                    <h1 className="text-4xl font-serif font-bold text-white tracking-tighter italic uppercase flex items-center gap-4">
-                        <HardDrive className="text-[#D84040]" size={36} /> 
+                    <h1 className="text-4xl font-serif font-bold text-white tracking-tighter     flex items-center gap-4">
+                        <HardDrive className="text-[#D84040]" size={36} />
                         Base de Médias
                     </h1>
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-[#D84040] font-bold mt-1">
+                    <p className="text-[10px]   tracking-[0.3em] text-[#D84040] font-bold mt-1">
                         Stockage centralisé des preuves et documents
                     </p>
                 </div>
@@ -57,9 +57,9 @@ export default function MediaPage() {
                 <div className="absolute top-0 right-0 p-4 opacity-5">
                     <UploadCloud size={120} />
                 </div>
-                
-                <h2 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-6 flex items-center gap-2">
-                    <UploadCloud size={16} className="text-[#D84040]" /> 
+
+                <h2 className="text-xs font-black   tracking-[0.2em] text-white mb-6 flex items-center gap-2">
+                    <UploadCloud size={16} className="text-[#D84040]" />
                     Nouveau Transfert de Fichier
                 </h2>
 
@@ -68,13 +68,13 @@ export default function MediaPage() {
                         <label className="group relative flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#8E1616]/20 hover:border-[#D84040]/50 transition-all cursor-pointer bg-black/20">
                             <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                 <ImageIcon className="text-[#CCCCCC]/30 group-hover:text-[#D84040] mb-2 transition-colors" size={24} />
-                                <p className="text-[10px] text-[#CCCCCC]/40 uppercase font-bold tracking-widest">
+                                <p className="text-[10px] text-[#CCCCCC]/40   font-bold tracking-widest">
                                     {file ? file.name : "Sélectionner une image (JPG, PNG, WEBP)"}
                                 </p>
                             </div>
-                            <input 
-                                type="file" 
-                                className="hidden" 
+                            <input
+                                type="file"
+                                className="hidden"
                                 onChange={(e) => setFile(e.target.files?.[0] || null)}
                                 accept="image/*"
                             />
@@ -84,7 +84,7 @@ export default function MediaPage() {
                     <button
                         onClick={handleUpload}
                         disabled={!file || loading}
-                        className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-black uppercase tracking-[0.2em] text-[10px] disabled:bg-gray-700 disabled:opacity-30 transition-all shadow-lg border border-white/10 shrink-0"
+                        className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-black   tracking-[0.2em] text-[10px] disabled:bg-gray-700 disabled:opacity-30 transition-all shadow-lg border border-white/10 shrink-0"
                     >
                         {loading ? 'Cryptage & Envoi...' : 'Exécuter l\'Upload'}
                     </button>
@@ -94,9 +94,9 @@ export default function MediaPage() {
             {/* GALLERY SECTION */}
             <div>
                 <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-lg font-serif font-bold text-white italic uppercase flex items-center gap-3">
-                        Archives Visuelles 
-                        <span className="text-[10px] not-italic font-mono bg-[#D84040] px-2 py-0.5 rounded-sm">
+                    <h2 className="text-lg font-serif font-bold text-white     flex items-center gap-3">
+                        Archives Visuelles
+                        <span className="text-[10px] not-  font-mono bg-[#D84040] px-2 py-0.5 rounded-sm">
                             {uploadedMedias.length} UNITÉS
                         </span>
                     </h2>
@@ -105,7 +105,7 @@ export default function MediaPage() {
 
                 {uploadedMedias.length === 0 ? (
                     <div className="text-center py-20 border border-[#8E1616]/10 bg-black/10">
-                        <p className="text-[10px] uppercase tracking-[0.4em] text-[#CCCCCC]/20 font-bold italic">Archive vide - Aucun média détecté</p>
+                        <p className="text-[10px]   tracking-[0.4em] text-[#CCCCCC]/20 font-bold  ">Archive vide - Aucun média détecté</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -131,19 +131,19 @@ export default function MediaPage() {
                                 <div className="p-4 space-y-3">
                                     <div className="flex items-start gap-2">
                                         <FileCode size={14} className="text-[#D84040] mt-0.5" />
-                                        <p className="text-[11px] font-mono text-[#CCCCCC] truncate uppercase tracking-tighter leading-tight" title={media.filename}>
+                                        <p className="text-[11px] font-mono text-[#CCCCCC] truncate   tracking-tighter leading-tight" title={media.filename}>
                                             {media.filename}
                                         </p>
                                     </div>
-                                    
+
                                     <div className="flex justify-between items-center pt-2 border-t border-[#8E1616]/10">
-                                        <span className="text-[9px] font-mono text-[#CCCCCC]/30 uppercase">Ref: {media._id.slice(-8)}</span>
+                                        <span className="text-[9px] font-mono text-[#CCCCCC]/30  ">Ref: {media._id.slice(-8)}</span>
                                         {media.url && (
                                             <a
                                                 href={media.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors"
+                                                className="flex items-center gap-1 text-[9px] font-black   tracking-widest text-blue-400 hover:text-blue-300 transition-colors"
                                             >
                                                 Ouvrir <ExternalLink size={10} />
                                             </a>
@@ -158,7 +158,7 @@ export default function MediaPage() {
 
             {/* Footer décoratif */}
             <div className="mt-12 text-center opacity-20">
-                <p className="text-[8px] uppercase tracking-[0.8em] font-bold">MoroccoSafety Media Cloud Storage v2.0</p>
+                <p className="text-[8px]   tracking-[0.8em] font-bold">MoroccoSafety Media Cloud Storage v2.0</p>
             </div>
         </div>
     )

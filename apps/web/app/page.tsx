@@ -30,7 +30,7 @@ export default function WelcomePage() {
           />
         </div>
         <nav>
-          <ul className="flex gap-8 text-lg font-medium tracking-wide uppercase">
+          <ul className="flex gap-8 text-lg font-medium tracking-wide  ">
             <Link href="/home">
               <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
             </Link>
@@ -52,13 +52,13 @@ export default function WelcomePage() {
           MoroccoSafety
         </h1>
 
-        <p className="text-xl md:text-3xl font-light tracking-widest uppercase mb-10 max-w-4xl">
+        <p className="text-xl md:text-3xl font-light tracking-widest   mb-10 max-w-4xl">
           Real-time crisis alerts across Morocco <br />
           <span className="font-semibold">Stay informed, Stay safe</span>
         </p>
         <Link href="/signup">
 
-          <button className="bg-[#D84040]  text-white text-2xl px-10 py-3 rounded-xl transition-all duration-300 shadow-xl lowercase italic font-semibold">
+          <button className="bg-[#D84040]  text-white text-2xl px-10 py-3 rounded-xl transition-all duration-300 shadow-xl lowercase   font-semibold">
             get Started
           </button>
         </Link>

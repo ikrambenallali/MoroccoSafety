@@ -36,7 +36,7 @@ export default function Login() {
                 <div className="w-full max-w-md">
 
                     <h1
-                        className="text-[#D84040] text-5xl font-bold mb-12 italic uppercase tracking-wider text-center"
+                        className="text-[#D84040] text-5xl font-bold mb-12     tracking-wider text-center"
                         style={{ fontFamily: 'serif' }}
                     >
                         LOGIN

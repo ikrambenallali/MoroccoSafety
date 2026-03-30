@@ -20,16 +20,16 @@ export default function CreateAlert() {
   }
 
   const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-4 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm";
-  const labelStyle = "text-[10px] uppercase tracking-[0.2em] font-black text-[#D84040] mb-2 block";
+  const labelStyle = "text-[10px]   tracking-[0.2em] font-black text-[#D84040] mb-2 block";
 
   return (
     <div className="p-8 bg-[#2B3337] min-h-screen flex justify-center items-start">
       <div className="w-full max-w-2xl bg-[#1e2427] p-10 border border-[#8E1616]/20 shadow-2xl relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-[#D84040]"></div>
 
-        <button 
-          onClick={() => router.back()} 
-          className="text-[10px] text-[#CCCCCC]/40 hover:text-white uppercase font-black tracking-widest mb-8 flex items-center gap-2 transition-colors"
+        <button
+          onClick={() => router.back()}
+          className="text-[10px] text-[#CCCCCC]/40 hover:text-white   font-black tracking-widest mb-8 flex items-center gap-2 transition-colors"
         >
           <ArrowLeft size={14} /> Annuler la rédaction
         </button>
@@ -39,8 +39,8 @@ export default function CreateAlert() {
             <ShieldAlert size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-serif font-bold text-white italic uppercase tracking-tighter">Nouvelle Alerte SMS/Push</h1>
-            <p className="text-[10px] text-[#CCCCCC]/50 uppercase tracking-widest font-bold font-mono text-white/40">Système de messagerie publique</p>
+            <h1 className="text-3xl font-serif font-bold text-white     tracking-tighter">Nouvelle Alerte SMS/Push</h1>
+            <p className="text-[10px] text-[#CCCCCC]/50   tracking-widest font-bold font-mono text-white/40">Système de messagerie publique</p>
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export default function CreateAlert() {
               rows={4}
               placeholder="Instructions précises pour les citoyens..."
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className={`${inputStyle} resize-none italic`}
+              className={`${inputStyle} resize-none  `}
             />
           </div>
 
@@ -79,8 +79,8 @@ export default function CreateAlert() {
             </select>
           </div>
 
-          <button className="w-full bg-[#D84040] hover:bg-[#8E1616] text-white py-4 font-black uppercase tracking-[0.3em] transition-all shadow-lg border border-white/10 flex items-center justify-center gap-3 group">
-            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> 
+          <button className="w-full bg-[#D84040] hover:bg-[#8E1616] text-white py-4 font-black   tracking-[0.3em] transition-all shadow-lg border border-white/10 flex items-center justify-center gap-3 group">
+            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             Enregistrer et Préparer l'envoi
           </button>
         </form>

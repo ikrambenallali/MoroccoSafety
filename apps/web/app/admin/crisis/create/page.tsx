@@ -35,7 +35,7 @@ export default function CreateCrisis() {
     }
 
     const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-3 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm";
-    const labelStyle = "text-[10px] uppercase tracking-[0.2em] font-black text-[#D84040] mb-2 block";
+    const labelStyle = "text-[10px]   tracking-[0.2em] font-black text-[#D84040] mb-2 block";
 
     return (
         <div className="p-8 bg-[#2B3337] min-h-screen flex justify-center items-start">
@@ -48,8 +48,8 @@ export default function CreateCrisis() {
                         <ShieldAlert size={32} />
                     </div>
                     <div>
-                        <h1 className="text-3xl font-serif font-bold text-white italic uppercase tracking-tighter">Déclarer une Alerte</h1>
-                        <p className="text-[10px] text-[#CCCCCC]/50 uppercase tracking-widest font-bold">Formulaire officiel de signalement</p>
+                        <h1 className="text-3xl font-serif font-bold text-white     tracking-tighter">Déclarer une Alerte</h1>
+                        <p className="text-[10px] text-[#CCCCCC]/50   tracking-widest font-bold">Formulaire officiel de signalement</p>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@ export default function CreateCrisis() {
                     {/* Paramètres techniques */}
                     <div className="grid md:grid-cols-2 gap-6 p-6 bg-black/20 border-l-2 border-[#D84040]">
                         <div>
-                            <label className={labelStyle}><Activity size={12} className="inline mr-1"/> Sévérité (1-10)</label>
+                            <label className={labelStyle}><Activity size={12} className="inline mr-1" /> Sévérité (1-10)</label>
                             <input required type="number" className={inputStyle} onChange={(e) => setForm({ ...form, severity: e.target.value })} />
                         </div>
                         <div>
@@ -77,20 +77,20 @@ export default function CreateCrisis() {
                             <input required type="number" className={inputStyle} onChange={(e) => setForm({ ...form, radius: e.target.value })} />
                         </div>
                         <div>
-                            <label className={labelStyle}><MapPin size={12} className="inline mr-1"/> Latitude</label>
+                            <label className={labelStyle}><MapPin size={12} className="inline mr-1" /> Latitude</label>
                             <input required type="number" step="any" className={inputStyle} onChange={(e) => setForm({ ...form, latitude: e.target.value })} />
                         </div>
                         <div>
-                            <label className={labelStyle}><MapPin size={12} className="inline mr-1"/> Longitude</label>
+                            <label className={labelStyle}><MapPin size={12} className="inline mr-1" /> Longitude</label>
                             <input required type="number" step="any" className={inputStyle} onChange={(e) => setForm({ ...form, longitude: e.target.value })} />
                         </div>
                     </div>
 
                     <div className="flex gap-4 pt-4">
-                        <button type="submit" className="flex-1 bg-[#D84040] hover:bg-[#8E1616] text-white py-4 font-black uppercase tracking-[0.3em] transition-all shadow-lg border border-white/10">
+                        <button type="submit" className="flex-1 bg-[#D84040] hover:bg-[#8E1616] text-white py-4 font-black   tracking-[0.3em] transition-all shadow-lg border border-white/10">
                             Diffuser l'Alerte Immédiatement
                         </button>
-                        <button type="button" onClick={() => router.back()} className="px-8 py-4 border border-white/10 text-white/40 hover:text-white uppercase text-[10px] font-bold tracking-widest transition-all">
+                        <button type="button" onClick={() => router.back()} className="px-8 py-4 border border-white/10 text-white/40 hover:text-white   text-[10px] font-bold tracking-widest transition-all">
                             Annuler
                         </button>
                     </div>

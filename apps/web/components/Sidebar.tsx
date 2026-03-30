@@ -22,7 +22,7 @@ export default function Sidebar({ role }: Props) {
                     <div className="w-8 h-8 bg-[#8E1616] rounded-full animate-pulse"></div>
                     <h2 className="text-xl font-serif font-bold text-white tracking-widest">MoroccoSafety</h2>
                 </div>
-                <div className="text-[#CCCCCC]/50 italic text-sm animate-pulse">Initialisation du système...</div>
+                <div className="text-[#CCCCCC]/50   text-sm animate-pulse">Initialisation du système...</div>
             </aside>
         )
     }
@@ -31,18 +31,18 @@ export default function Sidebar({ role }: Props) {
         <aside className={sidebarStyles}>
             {/* Header avec Logo */}
             <div className="flex items-center gap-3 mb-12 px-2">
-                <div className="w-10 h-10 bg-[#8E1616] rounded-sm flex items-center justify-center font-bold text-white italic border border-[#D84040]/50 shadow-[0_0_15px_rgba(142,22,22,0.4)]">
+                <div className="w-10 h-10 bg-[#8E1616] rounded-sm flex items-center justify-center font-bold text-white   border border-[#D84040]/50 shadow-[0_0_15px_rgba(142,22,22,0.4)]">
                     M
                 </div>
                 <div>
                     <h2 className="text-lg font-serif font-bold text-white leading-tight tracking-tighter">MoroccoSafety</h2>
-                    <span className="text-[10px] text-[#D84040] font-bold uppercase tracking-widest">{role} panel</span>
+                    <span className="text-[10px] text-[#D84040] font-bold   tracking-widest">{role} panel</span>
                 </div>
             </div>
 
             {/* Navigation */}
             <nav className="flex-1 space-y-3">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-[#CCCCCC]/40 font-bold px-3 mb-4">Menu Principal</p>
+                <p className="text-[10px]   tracking-[0.3em] text-[#CCCCCC]/40 font-bold px-3 mb-4">Menu Principal</p>
 
                 {links.map((item, index) => {
                     const Icon = item.icon
@@ -62,7 +62,7 @@ export default function Sidebar({ role }: Props) {
                                 size={20}
                                 className={`${isActive ? 'text-[#D84040]' : 'text-[#CCCCCC]/60 group-hover:text-[#D84040]'} transition-colors`}
                             />
-                            <span className="text-sm font-bold uppercase tracking-widest leading-none">
+                            <span className="text-sm font-bold   tracking-widest leading-none">
                                 {item.label}
                             </span>
 
@@ -79,7 +79,7 @@ export default function Sidebar({ role }: Props) {
             <div className="mt-auto pt-6 border-t border-[#8E1616]/20">
                 <div className="flex items-center gap-2 px-3">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                    <span className="text-[10px] text-[#CCCCCC]/40 uppercase font-bold tracking-tighter italic">
+                    <span className="text-[10px] text-[#CCCCCC]/40   font-bold tracking-tighter  ">
                         Système Opérationnel
                     </span>
                 </div>

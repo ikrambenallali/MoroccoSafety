@@ -47,18 +47,18 @@ export default function CreateZone() {
     }, [])
 
     const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-3 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm font-mono";
-    const labelStyle = "text-[10px] uppercase tracking-[0.2em] font-black text-[#D84040] mb-2 block";
+    const labelStyle = "text-[10px]   tracking-[0.2em] font-black text-[#D84040] mb-2 block";
 
     return (
         <div className="p-8 bg-[#2B3337] min-h-screen flex justify-center items-start">
             <div className="w-full max-w-2xl bg-[#1e2427] p-10 border border-[#8E1616]/20 shadow-2xl relative">
-                
+
                 {/* Ligne décorative style "Radar" */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-[#D84040]"></div>
 
-                <button 
-                    onClick={() => router.back()} 
-                    className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#CCCCCC]/40 hover:text-white mb-8 transition-colors"
+                <button
+                    onClick={() => router.back()}
+                    className="flex items-center gap-2 text-[10px] font-black   tracking-widest text-[#CCCCCC]/40 hover:text-white mb-8 transition-colors"
                 >
                     <ArrowLeft size={14} /> Annuler l'opération
                 </button>
@@ -68,13 +68,13 @@ export default function CreateZone() {
                         <Target size={32} />
                     </div>
                     <div>
-                        <h1 className="text-3xl font-serif font-bold text-white italic uppercase tracking-tighter">Définir un Périmètre</h1>
-                        <p className="text-[10px] text-[#CCCCCC]/50 uppercase tracking-widest font-bold">Initialisation de zone géographique</p>
+                        <h1 className="text-3xl font-serif font-bold text-white     tracking-tighter">Définir un Périmètre</h1>
+                        <p className="text-[10px] text-[#CCCCCC]/50   tracking-widest font-bold">Initialisation de zone géographique</p>
                     </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    
+
                     {/* Identification */}
                     <div>
                         <label className={labelStyle}>Nom du Secteur / Code Zone</label>
@@ -97,7 +97,7 @@ export default function CreateZone() {
                             <option value="" className="bg-[#2B3337]">-- AUCUNE SÉLECTION --</option>
                             {crises.map((c: any) => (
                                 <option key={c._id} value={c._id} className="bg-[#2B3337]">
-                                    {c.title.toUpperCase()} (SÉVÉRITÉ: {c.severity})
+                                    {c.title.to()} (SÉVÉRITÉ: {c.severity})
                                 </option>
                             ))}
                         </select>
@@ -107,7 +107,7 @@ export default function CreateZone() {
                     <div className="grid grid-cols-2 gap-4 p-6 bg-black/20 border-l-2 border-[#D84040]">
                         <div className="col-span-2 mb-2 flex items-center gap-2">
                             <MapPin size={14} className="text-[#D84040]" />
-                            <span className="text-[10px] text-white/40 uppercase font-bold tracking-widest">Coordonnées du Point d'Origine</span>
+                            <span className="text-[10px] text-white/40   font-bold tracking-widest">Coordonnées du Point d'Origine</span>
                         </div>
                         <div>
                             <input
@@ -133,12 +133,12 @@ export default function CreateZone() {
 
                     <div className="bg-[#D84040]/5 p-4 flex gap-3 rounded-sm border border-[#D84040]/20">
                         <Info size={16} className="text-[#D84040] shrink-0 mt-0.5" />
-                        <p className="text-[10px] text-blue-200/60 leading-relaxed italic">
+                        <p className="text-[10px] text-blue-200/60 leading-relaxed  ">
                             Note : Le système générera automatiquement un polygone de 0.01° autour de ce point pour définir le périmètre initial.
                         </p>
                     </div>
 
-                    <button className="w-full bg-[#D84040] hover:bg-[#D84040] text-white py-4 font-black uppercase tracking-[0.3em] transition-all shadow-lg border border-white/10 group">
+                    <button className="w-full bg-[#D84040] hover:bg-[#D84040] text-white py-4 font-black   tracking-[0.3em] transition-all shadow-lg border border-white/10 group">
                         Confirmer le Périmètre
                     </button>
                 </form>

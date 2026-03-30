@@ -19,7 +19,7 @@ export default function MoroccoSafetyHome() {
                     />
                 </div>
                 <nav>
-                    <ul className="flex gap-8 text-lg font-medium tracking-wide uppercase">
+                    <ul className="flex gap-8 text-lg font-medium tracking-wide  ">
                         <Link href="/home">
                             <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
                         </Link>
@@ -46,20 +46,20 @@ export default function MoroccoSafetyHome() {
                         <h1 className="text-5xl md:text-7xl font-serif text-[#D84040] tracking-tighter leading-tight drop-shadow-xl">
                             MoroccoSafety
                         </h1>
-                        <p className="text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-white italic">
+                        <p className="text-xl md:text-2xl font-black   tracking-[0.2em] text-white  ">
                             Unir nos forces face aux <span className="text-[#D84040]">risques</span>
                         </p>
                         <div className="h-1 w-20 bg-[#8E1616]"></div>
                         <p className="text-lg md:text-xl font-light leading-relaxed text-[#CCCCCC] max-w-xl">
                             Le Maroc est exposé à diverses catastrophes naturelles : séismes, inondations et incendies.
                             <br /><br />
-                            <span className="text-white font-bold italic">MoroccoSafety</span> est une plateforme citoyenne conçue pour <strong>donner l'alerte</strong> instantanément. En signalant un incident, vous aidez la communauté et les secours à réagir plus vite.
+                            <span className="text-white font-bold  ">MoroccoSafety</span> est une plateforme citoyenne conçue pour <strong>donner l'alerte</strong> instantanément. En signalant un incident, vous aidez la communauté et les secours à réagir plus vite.
                         </p>
                         <div className="flex flex-wrap gap-4 pt-4">
-                            <button className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest transition-all shadow-lg border border-white/10">
+                            <button className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest transition-all shadow-lg border border-white/10">
                                 S'inscrire aux alertes
                             </button>
-                            <button className="bg-transparent border border-[#8E1616] text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-[#8E1616]/20 transition-all">
+                            <button className="bg-transparent border border-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest hover:bg-[#8E1616]/20 transition-all">
                                 Signaler un danger
                             </button>
                         </div>
@@ -70,10 +70,10 @@ export default function MoroccoSafetyHome() {
                         <img src="/map.png" alt="Carte du Maroc" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#2B3337] via-transparent to-transparent opacity-60"></div>
                         <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#2B3337]/90 border border-[#8E1616]/30 backdrop-blur-sm">
-                            <p className="text-[#D84040] font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                            <p className="text-[#D84040] font-bold text-xs   tracking-widest flex items-center gap-2">
                                 <span className="w-2 h-2 bg-[#D84040] rounded-full animate-ping"></span> Live Monitoring
                             </p>
-                            <p className="text-white text-sm italic">Zones de surveillance active : Al Haouz, Rif, Atlas.</p>
+                            <p className="text-white text-sm  ">Zones de surveillance active : Al Haouz, Rif, Atlas.</p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ export default function MoroccoSafetyHome() {
             {/* --- SECTION EXPLICATIONS --- */}
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <div className="text-center mb-24">
-                    <h2 className="text-4xl font-serif italic text-white mb-4 italic text-[#D84040]">Vigilance & Prévention</h2>
+                    <h2 className="text-4xl font-serif   text-white mb-4   text-[#D84040]">Vigilance & Prévention</h2>
                     <div className="h-[2px] w-24 bg-[#8E1616] mx-auto"></div>
                 </div>
 
@@ -92,15 +92,15 @@ export default function MoroccoSafetyHome() {
                         <div className="absolute inset-0 bg-[#3a2a1a]/40 group-hover:bg-transparent transition-all duration-700"></div>
                         <img src="/photo6.png" alt="Séismes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#2B3337] via-transparent to-transparent opacity-80"></div>
-                        <h3 className="absolute bottom-6 left-8 text-4xl font-bold text-[#D84040] uppercase italic">Séismes</h3>
+                        <h3 className="absolute bottom-6 left-8 text-4xl font-bold text-[#D84040]    ">Séismes</h3>
                     </div>
                     <div className="space-y-6">
                         <p className="text-2xl font-light leading-relaxed border-l-4 border-[#8E1616] pl-8 py-4">
                             Le Maroc est au cœur d'une zone tectonique active. <br />
-                            <span className="text-white font-bold uppercase text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Impact & Origine</span>
+                            <span className="text-white font-bold   text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Impact & Origine</span>
                             Comprendre les mouvements des plaques est vital pour la résilience des infrastructures et la sécurité des citoyens dans les zones à risque comme Al Haouz.
                         </p>
-                        <p className="text-[#CCCCCC] pl-10 italic">
+                        <p className="text-[#CCCCCC] pl-10  ">
                             Notre plateforme centralise les données sismiques pour une diffusion immédiate des alertes de sécurité.
                         </p>
                     </div>
@@ -111,10 +111,10 @@ export default function MoroccoSafetyHome() {
                     <div className="order-2 lg:order-1 space-y-6 text-right">
                         <p className="text-2xl font-light leading-relaxed border-r-4 border-[#D84040] pr-8 py-4">
                             Les vagues de chaleur menacent nos forêts du Nord. <br />
-                            <span className="text-white font-bold uppercase text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Surveillance Satellite</span>
+                            <span className="text-white font-bold   text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Surveillance Satellite</span>
                             La détection précoce via imagerie thermique permet de déployer les secours avant que le feu ne devienne incontrôlable.
                         </p>
-                        <p className="text-[#CCCCCC] pr-10 italic">
+                        <p className="text-[#CCCCCC] pr-10  ">
                             Chaque minute compte. Signalez et suivez la progression des incendies en temps réel.
                         </p>
                     </div>
@@ -122,7 +122,7 @@ export default function MoroccoSafetyHome() {
                         <div className="absolute inset-0 bg-orange-950/30 group-hover:bg-transparent transition-all duration-700"></div>
                         <img src="/photo4.png" alt="Incendies" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#2B3337] via-transparent to-transparent opacity-80"></div>
-                        <h3 className="absolute bottom-6 right-8 text-4xl font-bold text-[#D84040] uppercase italic">Incendies</h3>
+                        <h3 className="absolute bottom-6 right-8 text-4xl font-bold text-[#D84040]    ">Incendies</h3>
                     </div>
                 </div>
 
@@ -132,15 +132,15 @@ export default function MoroccoSafetyHome() {
                         <div className="absolute inset-0 bg-blue-950/30 group-hover:bg-transparent transition-all duration-700"></div>
                         <img src="/photo5.png" alt="Météo" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#2B3337] via-transparent to-transparent opacity-80"></div>
-                        <h3 className="absolute bottom-6 left-8 text-4xl font-bold text-[#D84040] uppercase italic">Tempêtes</h3>
+                        <h3 className="absolute bottom-6 left-8 text-4xl font-bold text-[#D84040]    ">Tempêtes</h3>
                     </div>
                     <div className="space-y-6">
                         <p className="text-2xl font-light leading-relaxed border-l-4 border-[#8E1616] pl-8 py-4">
                             Inondations et vents violents. <br />
-                            <span className="text-white font-bold uppercase text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Alerte Précoce</span>
+                            <span className="text-white font-bold   text-sm tracking-widest block mt-4 mb-2 text-[#D84040]">Alerte Précoce</span>
                             Nos algorithmes météo analysent les risques de crues subites pour protéger les populations vivant à proximité des Oueds.
                         </p>
-                        <p className="text-[#CCCCCC] pl-10 italic font-bold">
+                        <p className="text-[#CCCCCC] pl-10   font-bold">
                             Restez à l'abri grâce aux notifications géo-localisées.
                         </p>
                     </div>
@@ -150,7 +150,7 @@ export default function MoroccoSafetyHome() {
             {/* --- SECTION REVIEWS --- */}
             <section className="bg-[#1e2427] py-32 border-y border-[#8E1616]/20">
                 <div className="max-w-6xl mx-auto px-6">
-                    <h2 className="text-center text-3xl font-serif italic text-white mb-20 tracking-widest uppercase italic font-bold">Avis de la Communauté</h2>
+                    <h2 className="text-center text-3xl font-serif   text-white mb-20 tracking-widest     font-bold">Avis de la Communauté</h2>
 
                     <div className="grid md:grid-cols-3 gap-12">
                         {[
@@ -162,8 +162,8 @@ export default function MoroccoSafetyHome() {
                                 <div className="text-[#D84040] mb-4 text-sm tracking-widest">
                                     {"★".repeat(review.stars)}{"☆".repeat(5 - review.stars)}
                                 </div>
-                                <p className="text-white/80 mb-8 italic leading-relaxed font-light">"{review.text}"</p>
-                                <p className="font-black text-[#D84040] uppercase text-xs tracking-[0.2em]">— {review.name}</p>
+                                <p className="text-white/80 mb-8   leading-relaxed font-light">"{review.text}"</p>
+                                <p className="font-black text-[#D84040]   text-xs tracking-[0.2em]">— {review.name}</p>
                             </div>
                         ))}
                     </div>
@@ -172,14 +172,14 @@ export default function MoroccoSafetyHome() {
 
             {/* --- FOOTER --- */}
             <footer className="py-16 text-center">
-                <div className="mb-8 opacity-50 flex justify-center gap-4 text-[10px] uppercase tracking-widest font-bold">
+                <div className="mb-8 opacity-50 flex justify-center gap-4 text-[10px]   tracking-widest font-bold">
                     <a href="#">Privacy Policy</a>
                     <span>•</span>
                     <a href="#">Contact</a>
                     <span>•</span>
                     <a href="#">Emergency Numbers</a>
                 </div>
-                <p className="text-[#CCCCCC]/30 text-[10px] tracking-[0.3em] uppercase">
+                <p className="text-[#CCCCCC]/30 text-[10px] tracking-[0.3em]  ">
                     © 2026 MoroccoSafety | Proteger. Alerter. Sauver.
                 </p>
             </footer>

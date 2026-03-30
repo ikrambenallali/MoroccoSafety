@@ -17,9 +17,9 @@ export default function UsersPage() {
   }, [])
 
   const handleRoleChange = async (userId: string, role: string) => {
-    if(confirm(`⚠️ Modifier l'accréditation de cet utilisateur vers : ${role.toUpperCase()} ?`)) {
-        await updateUserRole(userId, role)
-        fetchUsers()
+    if (confirm(`⚠️ Modifier l'accréditation de cet utilisateur vers : ${role.to()} ?`)) {
+      await updateUserRole(userId, role)
+      fetchUsers()
     }
   }
 
@@ -28,16 +28,16 @@ export default function UsersPage() {
       {/* Header Section */}
       <div className="flex justify-between items-center mb-10 border-b border-[#8E1616]/30 pb-6">
         <div>
-          <h1 className="text-4xl font-serif font-bold text-white tracking-tighter italic uppercase flex items-center gap-4">
-            <Users className="text-[#D84040]" size={36} /> 
+          <h1 className="text-4xl font-serif font-bold text-white tracking-tighter     flex items-center gap-4">
+            <Users className="text-[#D84040]" size={36} />
             Contrôle des Accès
           </h1>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-[#D84040] font-bold mt-1">
+          <p className="text-[10px]   tracking-[0.3em] text-[#D84040] font-bold mt-1">
             Gestion des privilèges et des rôles utilisateurs
           </p>
         </div>
         <div className="text-right">
-            <span className="text-xs font-mono text-white/40">Total Utilisateurs: {users.length}</span>
+          <span className="text-xs font-mono text-white/40">Total Utilisateurs: {users.length}</span>
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export default function UsersPage() {
       <div className="overflow-hidden rounded-sm border border-[#8E1616]/20 bg-[#1e2427] shadow-2xl">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[#8E1616]/10 text-white uppercase text-[10px] tracking-[0.2em] border-b border-[#8E1616]/20">
+            <tr className="bg-[#8E1616]/10 text-white   text-[10px] tracking-[0.2em] border-b border-[#8E1616]/20">
               <th className="p-5 font-black">Utilisateur</th>
               <th className="p-5 font-black">Contact / Email</th>
               <th className="p-5 font-black">Niveau de Privilège</th>
@@ -59,7 +59,7 @@ export default function UsersPage() {
                 <td className="p-5">
                   <div className="flex items-center gap-3">
                     <UserCircle size={24} className="text-[#CCCCCC]/30 group-hover:text-[#D84040] transition-colors" />
-                    <span className="font-bold text-white uppercase tracking-tight text-sm">{u.name}</span>
+                    <span className="font-bold text-white   tracking-tight text-sm">{u.name}</span>
                   </div>
                 </td>
 
@@ -73,12 +73,11 @@ export default function UsersPage() {
                   <div className="flex items-center gap-2">
                     {u.role === 'admin' && <ShieldCheck size={14} className="text-[#D84040]" />}
                     {u.role === 'autorité' && <UserCog size={14} className="text-blue-400" />}
-                    <span className={`px-3 py-1 text-[10px] font-black rounded-sm border uppercase ${
-                        u.role === 'admin' ? 'border-[#D84040] text-[#D84040] bg-[#D84040]/5' :
-                        u.role === 'autorité' ? 'border-blue-400 text-blue-400 bg-blue-400/5' :
+                    <span className={`px-3 py-1 text-[10px] font-black rounded-sm border   ${u.role === 'admin' ? 'border-[#D84040] text-[#D84040] bg-[#D84040]/5' :
+                      u.role === 'autorité' ? 'border-blue-400 text-blue-400 bg-blue-400/5' :
                         'border-gray-600 text-gray-600'
-                    }`}>
-                        {u.role}
+                      }`}>
+                      {u.role}
                     </span>
                   </div>
                 </td>
@@ -88,7 +87,7 @@ export default function UsersPage() {
                   <select
                     value={u.role}
                     onChange={(e) => handleRoleChange(u._id, e.target.value)}
-                    className="bg-[#2B3337] border border-[#8E1616]/40 text-[#CCCCCC] text-[10px] font-bold uppercase tracking-widest p-2 outline-none focus:border-[#D84040] transition-all cursor-pointer rounded-sm"
+                    className="bg-[#2B3337] border border-[#8E1616]/40 text-[#CCCCCC] text-[10px] font-bold   tracking-widest p-2 outline-none focus:border-[#D84040] transition-all cursor-pointer rounded-sm"
                   >
                     <option value="citoyen">Citoyen</option>
                     <option value="autorité">Autorité</option>
@@ -103,15 +102,15 @@ export default function UsersPage() {
 
       {/* Footer / Légende */}
       <div className="mt-6 flex gap-8 justify-center opacity-30">
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest">
-              <div className="w-2 h-2 bg-[#D84040]"></div> Admin
-          </div>
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest">
-              <div className="w-2 h-2 bg-blue-400"></div> Autorité
-          </div>
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest">
-              <div className="w-2 h-2 bg-gray-600"></div> Citoyen
-          </div>
+        <div className="flex items-center gap-2 text-[10px] font-bold   tracking-widest">
+          <div className="w-2 h-2 bg-[#D84040]"></div> Admin
+        </div>
+        <div className="flex items-center gap-2 text-[10px] font-bold   tracking-widest">
+          <div className="w-2 h-2 bg-blue-400"></div> Autorité
+        </div>
+        <div className="flex items-center gap-2 text-[10px] font-bold   tracking-widest">
+          <div className="w-2 h-2 bg-gray-600"></div> Citoyen
+        </div>
       </div>
     </div>
   )

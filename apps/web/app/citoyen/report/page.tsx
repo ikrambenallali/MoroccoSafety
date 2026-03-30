@@ -125,10 +125,10 @@ export default function ReportPage() {
                         <AlertOctagon className="text-white" size={32} />
                     </div>
                     <div>
-                        <h1 className="text-xl font-black text-white uppercase tracking-tighter italic">
+                        <h1 className="text-xl font-black text-white   tracking-tighter  ">
                             Signalement d'Urgence
                         </h1>
-                        <p className="text-[10px] text-white/70 font-bold uppercase tracking-widest">
+                        <p className="text-[10px] text-white/70 font-bold   tracking-widest">
                             Canal Sécurisé • Transmission Immédiate
                         </p>
                     </div>
@@ -138,26 +138,26 @@ export default function ReportPage() {
                     {/* Error Banner */}
                     {error && (
                         <div className="bg-red-500/10 border-l-4 border-red-500 p-4 animate-in slide-in-from-left">
-                            <p className="text-red-500 text-xs font-bold uppercase italic">{error}</p>
+                            <p className="text-red-500 text-xs font-bold    ">{error}</p>
                         </div>
                     )}
 
                     {/* Zone de saisie */}
                     <div className="space-y-2">
-                        <label className="text-[10px] uppercase font-black text-[#D84040] tracking-widest">
+                        <label className="text-[10px]   font-black text-[#D84040] tracking-widest">
                             Description de l'incident
                         </label>
                         <textarea
                             placeholder="Nature de l'urgence, blessés, dangers immédiats..."
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            className="w-full bg-black/30 border border-white/10 p-4 text-white placeholder:text-white/10 focus:border-[#D84040] outline-none transition-all rounded-sm min-h-30 text-sm italic"
+                            className="w-full bg-black/30 border border-white/10 p-4 text-white placeholder:text-white/10 focus:border-[#D84040] outline-none transition-all rounded-sm min-h-30 text-sm  "
                         />
                     </div>
 
                     {/* Localisation */}
                     <div className="space-y-4">
-                        <label className="text-[10px] uppercase font-black text-[#D84040] tracking-widest block">
+                        <label className="text-[10px]   font-black text-[#D84040] tracking-widest block">
                             Coordonnées de l'incident
                         </label>
 
@@ -172,7 +172,7 @@ export default function ReportPage() {
                                 ) : (
                                     <Navigation className="group-hover:text-[#D84040] transition-colors" size={18} />
                                 )}
-                                <span className="text-[10px] font-black uppercase tracking-widest">
+                                <span className="text-[10px] font-black   tracking-widest">
                                     Localisation Auto
                                 </span>
                             </button>
@@ -183,7 +183,7 @@ export default function ReportPage() {
                                     }`}
                             >
                                 <Globe size={18} className="text-white" />
-                                <span className="text-[10px] font-black uppercase tracking-widest text-white">
+                                <span className="text-[10px] font-black   tracking-widest text-white">
                                     Saisie Manuelle
                                 </span>
                                 {useManualLocation ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -209,7 +209,7 @@ export default function ReportPage() {
                                 />
                                 <button
                                     onClick={handleManualLocationSubmit}
-                                    className="col-span-2 text-[9px] font-black uppercase tracking-widest text-[#D84040] hover:text-white transition-colors"
+                                    className="col-span-2 text-[9px] font-black   tracking-widest text-[#D84040] hover:text-white transition-colors"
                                 >
                                     Appliquer les coordonnées
                                 </button>
@@ -221,7 +221,7 @@ export default function ReportPage() {
                             <div className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/20 rounded-sm">
                                 <CheckCircle2 className="text-green-500" size={20} />
                                 <div>
-                                    <p className="text-[9px] font-black uppercase text-green-500 tracking-widest">Cible Verrouillée</p>
+                                    <p className="text-[9px] font-black   text-green-500 tracking-widest">Cible Verrouillée</p>
                                     <p className="text-[10px] font-mono text-white/60">
                                         GPS: {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
                                     </p>
@@ -230,7 +230,7 @@ export default function ReportPage() {
                         )}
                     </div>
                     <div className="space-y-2">
-                        <label className="text-[10px] uppercase font-black text-[#D84040] tracking-widest">
+                        <label className="text-[10px]   font-black text-[#D84040] tracking-widest">
                             Photo (optionnel)
                         </label>
 
@@ -259,7 +259,7 @@ export default function ReportPage() {
                     <button
                         onClick={handleSubmit}
                         disabled={loading || !description.trim() || !location}
-                        className="w-full bg-[#D84040] hover:bg-[#8E1616] disabled:bg-gray-800 disabled:opacity-50 text-white py-6 font-black uppercase tracking-[0.4em] transition-all flex items-center justify-center gap-4 group"
+                        className="w-full bg-[#D84040] hover:bg-[#8E1616] disabled:bg-gray-800 disabled:opacity-50 text-white py-6 font-black   tracking-[0.4em] transition-all flex items-center justify-center gap-4 group"
                     >
                         {loading ? (
                             <Loader2 className="animate-spin" size={20} />
@@ -273,7 +273,7 @@ export default function ReportPage() {
                 </div>
 
                 <div className="p-4 bg-black/40 text-center">
-                    <p className="text-[8px] text-white/20 uppercase font-bold tracking-[0.5em]">
+                    <p className="text-[8px] text-white/20   font-bold tracking-[0.5em]">
                         Usage strictement réservé aux situations réelles d'urgence
                     </p>
                 </div>

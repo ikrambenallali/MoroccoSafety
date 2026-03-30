@@ -28,11 +28,11 @@ export default function SentAlertsPage() {
 
   return (
     <div className="min-h-screen bg-[#2B3337] p-6">
-      
+
       {/* HEADER */}
       <div className="flex items-center gap-3 mb-8">
         <Bell className="text-[#D84040]" size={28} />
-        <h1 className="text-white text-2xl font-bold uppercase tracking-wider">
+        <h1 className="text-white text-2xl font-bold   tracking-wider">
           Alertes envoyées
         </h1>
       </div>
@@ -66,7 +66,7 @@ export default function SentAlertsPage() {
             </p>
 
             <div className="flex justify-between text-xs text-gray-500">
-          
+
 
               <span>
                 {new Date(alert.createdAt).toLocaleString()}
