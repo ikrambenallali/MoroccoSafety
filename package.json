@@ -1,0 +1,7 @@
+{
+  "name": "morocco-safety",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
+}
