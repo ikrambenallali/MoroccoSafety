@@ -3,7 +3,7 @@ services:
   - type: web
     name: morocco-safety-api
     plan: free
-    image: ikram2003/moroccosafety-api:latest  # Replace with your image
+    image: ikram2003/moroccosafety-api:latest # This is fine for the API
     envVars:
       - key: MONGO_URI
         sync: false
@@ -18,13 +18,12 @@ services:
   - type: web
     name: morocco-safety-web
     plan: free
-    image: ikram2003/moroccosafety-web:latest # Replace with your image
+    runtime: docker   # <-- Change from image to runtime: docker
+    dockerContext: .   # Context is the project root for monorepos
+    dockerfilePath: ./apps/web/Dockerfile # Use the local Dockerfile
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        fromService:
-          type: web
-          name: morocco-safety-api
-          property: host
+        value: https://morocco-safety-api.onrender.com # Use the real URL here
       - key: NODE_ENV
         value: production
       - key: PORT
