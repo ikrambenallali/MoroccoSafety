@@ -16,7 +16,7 @@ async function bootstrap() {
   console.log('📁 Servir les uploads depuis:', uploadsPath);
   app.use('/uploads', express.static(uploadsPath));
   app.use(express.static(uploadsPath));
-
+  console.log('🌍 MONGO_URI:', process.env.MONGO_URI);
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

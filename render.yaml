@@ -1,0 +1,34 @@
+services:
+  # Backend API (NestJS)
+  - type: web
+    name: morocco-safety-api
+    runtime: docker
+    dockerContext: ./apps/api
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGO_URI
+        sync: false # Set this in Render Dashboard (e.g. from MongoDB Atlas)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /api # Adjust if you have a health endpoint
+
+  # Frontend Web (Next.js)
+  - type: web
+    name: morocco-safety-web
+    runtime: docker
+    dockerContext: ./apps/web
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: morocco-safety-api
+          property: host
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

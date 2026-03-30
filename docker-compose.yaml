@@ -20,13 +20,15 @@ services:
       - mongo
     environment:
       PORT: 3000
-      MONGODB_URI: mongodb://root:example@mongo:27017/moroccosafety?authSource=admin
+      MONGO_URI: mongodb://root:example@mongo:27017/moroccosafety?authSource=admin
+      JWT_SECRET: your-super-secret-jwt-key-here
       NODE_ENV: production
     ports:
       - "3000:3000"
-    volumes:
-      - ./apps/api:/app
-    command: ["npm","run","start"]
+    # In production the source mount may hide built node_modules/dist from image
+    # volumes:
+    #   - ./apps/api:/app
+    command: ["npm","run","start:prod"]
 
   web:
     build:
@@ -42,8 +44,9 @@ services:
       NODE_ENV: production
     ports:
       - "3001:3001"
-    volumes:
-      - ./apps/web:/app
+    # In production the source mount may hide built node_modules/.next from image
+    # volumes:
+    #   - ./apps/web:/app
     command: ["npm","run","start"]
 
 volumes:
