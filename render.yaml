@@ -1,11 +1,9 @@
 services:
-  # Backend API (NestJS)
+  # Backend API
   - type: web
     name: morocco-safety-api
     plan: free
-    runtime: node
-    buildCommand: npm install --include=dev && npm run build -w api
-    startCommand: npm run start:prod -w api
+    image: ikram2003/moroccosafety-api:latest  # Replace with your image
     envVars:
       - key: MONGO_URI
         sync: false
@@ -15,16 +13,12 @@ services:
         value: 10000
       - key: NODE_ENV
         value: production
-      - key: NODE_VERSION
-        value: 20
 
-  # Frontend Web (Next.js)
+  # Frontend Web
   - type: web
     name: morocco-safety-web
     plan: free
-    runtime: node
-    buildCommand: npm install --include=dev && npm run build -w web
-    startCommand: npm run start -w web -- -p $PORT
+    image: ikram2003/moroccosafety-web:latest # Replace with your image
     envVars:
       - key: NEXT_PUBLIC_API_URL
         fromService:
@@ -35,5 +29,3 @@ services:
         value: production
       - key: PORT
         value: 10000
-      - key: NODE_VERSION
-        value: 20
