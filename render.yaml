@@ -4,9 +4,8 @@ services:
     name: morocco-safety-api
     plan: free
     runtime: node
-    rootDir: apps/api
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    buildCommand: npm install && npm run build -w api
+    startCommand: npm run start:prod -w api
     envVars:
       - key: MONGO_URI
         sync: false
@@ -24,9 +23,8 @@ services:
     name: morocco-safety-web
     plan: free
     runtime: node
-    rootDir: apps/web
-    buildCommand: npm install && npm run build
-    startCommand: npx next start -p $PORT
+    buildCommand: npm install && npm run build -w web
+    startCommand: npm run start -w web -- -p $PORT
     envVars:
       - key: NEXT_PUBLIC_API_URL
         fromService:
