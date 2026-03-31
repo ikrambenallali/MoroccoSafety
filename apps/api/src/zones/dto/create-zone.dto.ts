@@ -1,4 +1,3 @@
-// create-zone.dto.ts
 import { IsNotEmpty, IsString, IsMongoId, IsObject } from 'class-validator';
 
 export class CreateZoneDto {

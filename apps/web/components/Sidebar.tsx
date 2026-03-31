@@ -12,7 +12,6 @@ type UserRole = 'citizen' | 'authority' | 'admin'
 export default function Sidebar({ role }: Props) {
     const pathname = usePathname()
     const links = role ? sidebarConfig[role] : undefined
-    // Style commun pour le container
     const sidebarStyles = "w-72 min-h-screen bg-[#1e2427] border-r-2 border-[#D84040] shadow-[4px_0_24px_rgba(216,64,64,0.4)] p-6 flex flex-col transition-all duration-300";
 
     if (!links || !role) {

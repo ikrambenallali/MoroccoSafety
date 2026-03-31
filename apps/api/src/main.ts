@@ -14,7 +14,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // 📁 Servir les fichiers statiques depuis le dossier uploads
   const uploadsPath = path.join(process.cwd(), 'uploads');
   console.log('📁 Servir les uploads depuis:', uploadsPath);
   app.use('/uploads', express.static(uploadsPath));

@@ -1,4 +1,3 @@
-// zones.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -12,7 +11,7 @@ export class ZonesService {
   ) { }
 
   async create(createZoneDto: CreateZoneDto) {
-    console.log(createZoneDto) // 🔥 IMPORTANT
+    console.log(createZoneDto) 
     const zone = new this.zoneModel(createZoneDto);
     return zone.save();
   }

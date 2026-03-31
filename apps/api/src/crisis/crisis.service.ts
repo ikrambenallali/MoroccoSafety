@@ -10,7 +10,7 @@ import { AlertsService } from 'src/alerts/alerts.service';
 export class CrisisService {
   constructor(@InjectModel(Crisis.name) private crisisModel: Model<CrisisDocument>, private alertsService: AlertsService,) { }
 
-  // Polygon approximatif du Maroc (beaucoup mieux que rectangle)
+  // Polygon approximatif du Maroc 
   private readonly MAROC_POLYGON = [
     [-5.0, 35.8],
     [-1.0, 34.5],
@@ -23,7 +23,6 @@ export class CrisisService {
     [-6.5, 35.0],
   ];
 
-  // Fonction point-in-polygon
   private isPointInPolygon(point: [number, number], polygon: number[][]): boolean {
     const [x, y] = point;
     let inside = false;
@@ -53,11 +52,9 @@ export class CrisisService {
     throw new BadRequestException("La localisation doit être située au Maroc.");
   }
 
-  // 1. créer crisis
   const crisis = new this.crisisModel(createCrisisDto);
   const savedCrisis = await crisis.save();
 
-  // 2. créer alert automatiquement
   const alert = await this.alertsService.create({
     title: `🚨 ${savedCrisis.title}`,
     message: savedCrisis.description,
@@ -65,7 +62,6 @@ export class CrisisService {
     zone: JSON.stringify(savedCrisis.zone),
   });
 
-  // 3. envoyer alert automatiquement
   await this.alertsService.sendAlert(alert._id.toString());
 
   return savedCrisis;
@@ -74,7 +70,6 @@ export class CrisisService {
   async findAll(): Promise<Crisis[]> {
     const crises = await this.crisisModel.find().exec();
 
-    // filtrage propre avec polygon
     return crises.filter(c =>
       this.isInsideMorocco(c.zone.latitude, c.zone.longitude)
     );

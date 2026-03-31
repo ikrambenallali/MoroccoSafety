@@ -29,7 +29,6 @@ export default function StatsPage() {
         fetchData()
     }, [])
 
-    // Style commun pour les cartes de stats
     const statCardStyle = "bg-[#1e2427] border border-[#8E1616]/20 p-6 rounded-sm shadow-xl flex flex-col items-center justify-center relative overflow-hidden group";
 
     return (

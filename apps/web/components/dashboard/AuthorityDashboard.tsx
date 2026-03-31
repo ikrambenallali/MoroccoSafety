@@ -13,7 +13,6 @@ import {
 
 export default function AuthorityDashboard() {
 
-  // Style réutilisable pour les cartes de statistiques
   const statsCard = "bg-[#1e2427] border border-[#8E1616]/20 p-6 rounded-sm shadow-xl relative overflow-hidden group hover:border-[#D84040] transition-all"
 
   return (

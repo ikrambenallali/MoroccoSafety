@@ -1,4 +1,3 @@
-// zones.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, ObjectId, Types } from 'mongoose';
 
@@ -12,7 +11,6 @@ export class Zone {
   @Prop({ type: Types.ObjectId, ref: 'Crisis' })
   crisisId! : string;
 
-  // GeoJSON Polygon
   @Prop({
     type: {
       type: String,
@@ -20,7 +18,7 @@ export class Zone {
       required: true,
     },
     coordinates: {
-      type: [[[Number]]], // tableau 3D pour polygon
+      type: [[[Number]]], 
       required: true,
     },
   })
@@ -33,5 +31,4 @@ export class Zone {
 
 export const ZoneSchema = SchemaFactory.createForClass(Zone);
 
-// Index 2dsphere pour les requêtes géospatiales
 ZoneSchema.index({ geometry: '2dsphere' });

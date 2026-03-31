@@ -22,7 +22,7 @@ export class Crisis {
   status: CrisisStatus;
 
   @Prop({ required: true })
-  severity: string; // tu peux mettre enum aussi
+  severity: string; 
 
   @Prop({ type: Object })
   zone: { 

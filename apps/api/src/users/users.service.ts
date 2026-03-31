@@ -25,12 +25,10 @@ export class UsersService {
     return this.userModel.findById(id);
   }
 
-  // get all users (for admin)
   async findAll() {
     return this.userModel.find().select('-password');
   }
 
-  // update role (for admin)
   async updateRole(userId: string, role: string) {
     return this.userModel.findByIdAndUpdate(userId, { role }, { new: true }).select('-password');
   }

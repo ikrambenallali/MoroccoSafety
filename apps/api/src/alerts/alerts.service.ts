@@ -37,7 +37,6 @@ export class AlertsService {
     return alert;
   }
 
-  // find alert with sent = true 
   async findSentAlerts() {
     return this.alertModel.find({ sent: true }).exec();
   }

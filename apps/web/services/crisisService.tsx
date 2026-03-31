@@ -3,7 +3,7 @@ import { API_URL } from '../utils/constants'
 
 const API = `${API_URL}/crisis`
 
-// 🔐 ajouter token automatiquement
+// ajouter token automatiquement
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token')
   return {

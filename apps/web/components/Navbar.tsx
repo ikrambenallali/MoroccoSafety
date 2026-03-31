@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { logout } from '../features/authSlice'
-import { LogOut, Bell, ShieldAlert } from 'lucide-react' // Import d'icones pour le look "Dashboard"
+import { LogOut, Bell, ShieldAlert } from 'lucide-react' 
 
 export default function Navbar() {
     const router = useRouter()

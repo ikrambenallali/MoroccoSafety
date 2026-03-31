@@ -6,7 +6,7 @@ import { Zone, ZoneSchema } from './schemas/zones.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Zone.name, schema: ZoneSchema }]), // ✅ important
+    MongooseModule.forFeature([{ name: Zone.name, schema: ZoneSchema }]), 
   ],
   controllers: [ZonesController],
   providers: [ZonesService],

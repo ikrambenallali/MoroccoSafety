@@ -12,13 +12,13 @@ const getAuthHeaders = () => {
   }
 }
 
-// 👤 Get all users (admin)
+//  Get all users (admin)
 export const getUsers = async () => {
   const res = await axios.get(API, getAuthHeaders())
   return res.data
 }
 
-// 🔄 Update role
+//  Update role
 export const updateUserRole = async (userId: string, role: string) => {
   const res = await axios.put(
     `${API}/role`,
@@ -28,13 +28,13 @@ export const updateUserRole = async (userId: string, role: string) => {
   return res.data
 }
 
-// 👤 Get profile
+//  Get profile
 export const getProfile = async () => {
   const res = await axios.get(`${API}/profile`, getAuthHeaders())
   return res.data
 }
 
-// ✏️ Update profile
+//  Update profile
 export const updateProfile = async (data: any) => {
   const res = await axios.put(`${API}/profile`, data, getAuthHeaders())
   return res.data

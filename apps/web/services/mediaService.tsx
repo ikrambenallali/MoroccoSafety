@@ -3,7 +3,7 @@ import { API_URL } from '../utils/constants'
 
 const API = `${API_URL}/media`
 
-// 📤 upload file
+//  upload file
 export const uploadMedia = async (file: File) => {
     const formData = new FormData()
     formData.append('file', file)
@@ -17,13 +17,12 @@ export const uploadMedia = async (file: File) => {
     return res.data
 }
 
-// 📥 get media by id
+//  get media by id
 export const getMedia = async (id: string) => {
     const res = await axios.get(`${API}/${id}`)
     return res.data
 }
-
-// 📋 get all medias (requires backend endpoint)
+//  get all medias (requires backend endpoint)
 export const getAllMedias = async () => {
     try {
         const res = await axios.get(API)

@@ -28,7 +28,6 @@ export default function MediaPage() {
             const data = await uploadMedia(file)
             setUploadedMedias([...uploadedMedias, data])
             setFile(null)
-            // Utilisation d'un feedback plus propre que alert()
         } catch (error) {
             console.error('Upload failed:', error)
         } finally {

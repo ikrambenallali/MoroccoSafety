@@ -64,10 +64,7 @@ export default function WelcomePage() {
         </Link>
       </main>
 
-      {/* Effet visuel du bas (Nodes/Réseau) */}
-      <div className="absolute bottom-0 w-full h-1/3 pointer-events-none">
-        {/* On peut ajouter ici un overlay ou des éléments SVG pour simuler les connexions blanches */}
-      </div>
+     
     </div>
   );
-}
+} 

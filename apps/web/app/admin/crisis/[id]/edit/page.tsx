@@ -56,7 +56,6 @@ export default function EditCrisis() {
                         />
                     </div>
 
-                    {/* Vous pouvez ajouter d'autres champs ici comme dans CreateCrisis si nécessaire */}
 
                     <div className="pt-6">
                         <button className="w-full bg-blue-600 hover:bg-blue-700 text-white p-4 font-black   tracking-[0.3em] transition-all shadow-lg border border-white/10">

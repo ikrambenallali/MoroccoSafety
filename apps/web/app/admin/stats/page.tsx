@@ -32,7 +32,6 @@ export default function StatsPage() {
         fetchData()
     }, [])
 
-    // Style commun pour les cartes de stats
     const statCardStyle = "bg-[#1e2427] border border-[#8E1616]/20 p-6 rounded-sm shadow-xl flex flex-col items-center justify-center relative overflow-hidden group";
 
     return (
@@ -49,7 +48,7 @@ export default function StatsPage() {
                 </p>
             </div>
 
-            {/* 🔥 OVERVIEW - Cartes Tactiques */}
+            {/*  OVERVIEW - Cartes Tactiques */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className={statCardStyle}>
                     <div className="absolute top-0 left-0 w-1 h-full bg-[#D84040]"></div>
@@ -75,7 +74,7 @@ export default function StatsPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-                {/* 📊 CRISIS BY TYPE - Graphique Stylisé */}
+                {/*  CRISIS BY TYPE - Graphique Stylisé */}
                 <div className="bg-[#1e2427] border border-[#8E1616]/20 p-8 shadow-2xl relative">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-lg font-serif font-bold text-white     tracking-tight">Répartition par Type</h2>
@@ -107,7 +106,7 @@ export default function StatsPage() {
                     </ResponsiveContainer>
                 </div>
 
-                {/* ⏱ RESOLUTION TIME - Graphique Stylisé */}
+                {/*  RESOLUTION TIME - Graphique Stylisé */}
                 <div className="bg-[#1e2427] border border-[#8E1616]/20 p-8 shadow-2xl relative">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-lg font-serif font-bold text-white     tracking-tight">Temps moyen de réponse</h2>

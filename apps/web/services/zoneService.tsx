@@ -12,13 +12,13 @@ const getAuthHeaders = () => {
   }
 }
 
-// 📋 GET zones
+//  GET zones
 export const getZones = async () => {
   const res = await axios.get(API, getAuthHeaders())
   return res.data
 }
 
-// ➕ CREATE zone
+// CREATE zone
 export const createZone = async (data: any) => {
   const res = await axios.post(API, data, getAuthHeaders())
   return res.data

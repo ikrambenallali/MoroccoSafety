@@ -32,7 +32,7 @@ export default function CrisisMarker({ crisis, isUser = false }: any) {
     <>
       <Marker position={position} icon={icon}>
         <Popup className="custom-tactical-popup">
-          <div className="min-w-[200px] bg-[#1e2427] text-[#CCCCCC] p-1 font-sans">
+          <div className="min-w-50 bg-[#1e2427] text-[#CCCCCC] p-1 font-sans">
             <div className={`flex items-center gap-2 border-b border-white/10 pb-2 mb-2 ${getColor() === 'red' ? 'text-red-500' : 'text-orange-500'}`}>
               <AlertTriangle size={14} />
               <h3 className="font-black   tracking-tighter  ">{crisis.title}</h3>

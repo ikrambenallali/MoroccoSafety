@@ -26,7 +26,7 @@ const initialState: AuthState = {
 }
 const API = `${API_URL}/auth`;
 
-// 🔥 REGISTER
+//  REGISTER
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (data, thunkAPI) => {
@@ -39,7 +39,7 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-// 🔥 LOGIN
+//  LOGIN
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (data, thunkAPI) => {
@@ -52,7 +52,7 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// 🔥 GET USER PROFILE
+//  GET USER PROFILE
 export const getUserProfile = createAsyncThunk(
   'auth/getProfile',
   async (_, thunkAPI) => {

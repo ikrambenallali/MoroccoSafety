@@ -12,13 +12,13 @@ const getAuthHeaders = () => {
   }
 }
 
-// 📋 GET all reports
+//  GET all reports
 export const getReports = async () => {
   const res = await axios.get(API, getAuthHeaders())
   return res.data
 }
 
-// ✅ VALIDATE
+//  VALIDATE
 export const validateReport = async (id: string) => {
   const res = await axios.patch(
     `${API}/${id}/validate`,
@@ -28,7 +28,7 @@ export const validateReport = async (id: string) => {
   return res.data
 }
 
-// ❌ REJECT
+// REJECT
 export const rejectReport = async (id: string) => {
   const res = await axios.patch(
     `${API}/${id}/reject`,

@@ -16,7 +16,6 @@ function InitAuth() {
       store.dispatch(getUserProfile());
     } else {
       console.log('InitAuth: no token, marking as initialized');
-      // If no token, mark as initialized
       store.dispatch(initialize());
     }
   }, []);

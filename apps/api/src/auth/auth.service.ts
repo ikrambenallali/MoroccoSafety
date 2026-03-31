@@ -62,7 +62,6 @@ export class AuthService {
 
     const token = this.jwtService.sign(payload);
 
-    // Return user without password
     const { password, ...userWithoutPassword } = user.toObject();
 
     return {
