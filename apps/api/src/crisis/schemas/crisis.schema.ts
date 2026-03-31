@@ -28,7 +28,7 @@ export class Crisis {
   zone: { 
     latitude: number;
     longitude: number;
-    radius?: number; // optionnel
+    radius?: number; 
   };
 }
 

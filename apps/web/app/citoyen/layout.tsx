@@ -14,11 +14,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const { user } = useAuth()
 
   return (
-    <ProtectedRoute allowedRoles={['admin']}>
+    <ProtectedRoute allowedRoles={['citizen']}>
       <div>
-        <Navbar />
         <div className="flex">
-          {user && <Sidebar role={user.role} />}
           <main className="flex-1 bg-gray-50 min-h-screen">
             {children}
           </main>

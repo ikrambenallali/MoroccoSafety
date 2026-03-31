@@ -16,7 +16,7 @@ export class Alert {
   crisisId!: string;
 
   @Prop()
-  zone!: string; // ex: "Oujda", "Rabat"
+  zone!: string;
 
   @Prop({ default: false })
   sent!: boolean;

@@ -25,7 +25,7 @@ export default function CrisisList() {
           <p className="text-[10px]   tracking-[0.3em] text-[#D84040] font-bold">Surveillance du territoire</p>
         </div>
         <button
-          onClick={() => router.push('/admin/crisis/create')}
+          onClick={() => router.push('/authority/crisis/create')}
           className="bg-[#D84040] hover:bg-[#8E1616] text-white px-6 py-3 rounded-sm flex items-center gap-2 font-bold   tracking-widest transition-all shadow-lg"
         >
           <Plus size={18} /> Nouvelle Alerte

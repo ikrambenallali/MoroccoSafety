@@ -24,8 +24,8 @@ export const sidebarConfig = {
         { label: 'Dashboard', icon: Home, href: '/dashboard' },
         { label: 'Carte', icon: Map, href: '/map' },
         { label: 'Crises', icon: AlertTriangle, href: '/authority/crisis' },
-        { label: 'alerte', icon: AlertTriangle, href: '/admin/alerts' },
-        { label: 'Signalements', icon: FileText, href: '/admin/reports' },
+        { label: 'alerte', icon: AlertTriangle, href: '/alerts' },
+        { label: 'Signalements', icon: FileText, href: '/reports' },
         { label: 'Profil', icon: Settings, href: '/profile' },
 
     ],
@@ -34,8 +34,8 @@ export const sidebarConfig = {
         { label: 'Dashboard', icon: Home, href: '/admin/stats' },
         { label: 'Crises', icon: AlertTriangle, href: '/admin/crisis' },
         { label: 'Utilisateurs', icon: Users, href: '/admin/users' },
-        { label: 'Signalements', icon: FileText, href: '/admin/reports' },
+        { label: 'Signalements', icon: FileText, href: '/reports' },
         { label: 'Zones', icon: Map, href: '/admin/zones' },
-        { label: 'alerte', icon: AlertTriangle, href: '/admin/alerts' },
+        { label: 'alerte', icon: AlertTriangle, href: '/alerts' },
     ],
 }

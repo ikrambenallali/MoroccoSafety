@@ -31,19 +31,7 @@ export default function AuthorityDashboard() {
           </p>
         </div>
 
-        <div className="flex gap-4">
-          <div className="bg-black/20 px-4 py-2 border border-white/5 rounded-sm">
-            <p className="text-[8px]   font-bold text-white/40">Statut Système</p>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-              <span className="text-xs font-mono font-bold text-green-500">OPÉRATIONNEL</span>
-            </div>
-          </div>
-          <div className="bg-black/20 px-4 py-2 border border-white/5 rounded-sm text-right">
-            <p className="text-[8px]   font-bold text-white/40">Dernière MaJ</p>
-            <p className="text-xs font-mono font-bold text-white">14:02:55</p>
-          </div>
-        </div>
+      
       </div>
 
       {/* GRID DE STATISTIQUES RAPIDES */}
@@ -96,43 +84,7 @@ export default function AuthorityDashboard() {
 
       </div>
 
-      {/* SECTION DU BAS : ACTIVITÉ RÉCENTE */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        {/* Journal d'activité */}
-        <div className="bg-[#1e2427] border border-white/5 rounded-sm overflow-hidden">
-          <div className="bg-white/5 p-4 border-b border-white/5 flex items-center gap-2">
-            <Activity size={16} className="text-[#D84040]" />
-            <h2 className="text-xs font-black   tracking-widest text-white">Journal des Opérations</h2>
-          </div>
-          <div className="p-4 space-y-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex items-center gap-4 p-3 hover:bg-white/5 transition-colors border-l border-white/5 hover:border-[#D84040]">
-                <Clock size={14} className="text-white/20" />
-                <div className="flex-1">
-                  <p className="text-xs text-white/80 font-bold   tracking-tighter">Alerte "Inondation" publiée sur Casablanca</p>
-                  <p className="text-[9px] text-white/30 font-mono  ">Par: Officier_Medhi • 12:45:00</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Supervision Equipe */}
-        <div className="bg-[#1e2427] border border-white/5 rounded-sm overflow-hidden">
-          <div className="bg-white/5 p-4 border-b border-white/5 flex items-center gap-2">
-            <Users size={16} className="text-[#D84040]" />
-            <h2 className="text-xs font-black   tracking-widest text-white">Unités de Surveillance</h2>
-          </div>
-          <div className="p-8 flex flex-col items-center justify-center text-center">
-            <div className="w-16 h-16 border-2 border-dashed border-white/10 rounded-full flex items-center justify-center mb-4">
-              <Users className="text-white/10" size={24} />
-            </div>
-            <p className="text-[10px] text-white/20   font-bold tracking-[0.3em]">Module de gestion d'équipe <br /> en cours de déploiement</p>
-          </div>
-        </div>
-
-      </div>
+    
 
     </div>
   )

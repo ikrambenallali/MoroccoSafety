@@ -16,7 +16,7 @@ export default function CreateAlert() {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     await createAlert(form)
-    router.push('/admin/alerts')
+    router.push('/alerts')
   }
 
   const inputStyle = "w-full bg-[#1e2427] border border-[#8E1616]/30 p-4 text-white focus:border-[#D84040] focus:ring-1 focus:ring-[#D84040] outline-none transition-all placeholder:text-white/10 rounded-sm text-sm";

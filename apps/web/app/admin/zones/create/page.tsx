@@ -97,7 +97,7 @@ export default function CreateZone() {
                             <option value="" className="bg-[#2B3337]">-- AUCUNE SÉLECTION --</option>
                             {crises.map((c: any) => (
                                 <option key={c._id} value={c._id} className="bg-[#2B3337]">
-                                    {c.title.to()} (SÉVÉRITÉ: {c.severity})
+                                    {c.title.toLowerCase()} (SÉVÉRITÉ: {c.severity})
                                 </option>
                             ))}
                         </select>

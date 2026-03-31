@@ -17,7 +17,7 @@ export default function UsersPage() {
   }, [])
 
   const handleRoleChange = async (userId: string, role: string) => {
-    if (confirm(`⚠️ Modifier l'accréditation de cet utilisateur vers : ${role.to()} ?`)) {
+    if (confirm(`⚠️ Modifier l'accréditation de cet utilisateur vers : ${role.toLowerCase()} ?`)) {
       await updateUserRole(userId, role)
       fetchUsers()
     }
