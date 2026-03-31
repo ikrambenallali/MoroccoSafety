@@ -4,10 +4,11 @@ import { Model } from 'mongoose';
 import { Crisis, CrisisDocument } from './schemas/crisis.schema';
 import { CreateCrisisDto } from './dto/create-crisis.dto';
 import { UpdateCrisisDto } from './dto/update-crisis.dto';
+import { AlertsService } from 'src/alerts/alerts.service';
 
 @Injectable()
 export class CrisisService {
-  constructor(@InjectModel(Crisis.name) private crisisModel: Model<CrisisDocument>) {}
+  constructor(@InjectModel(Crisis.name) private crisisModel: Model<CrisisDocument>, private alertsService: AlertsService,) { }
 
   // Polygon approximatif du Maroc (beaucoup mieux que rectangle)
   private readonly MAROC_POLYGON = [
@@ -45,16 +46,30 @@ export class CrisisService {
     return this.isPointInPolygon([lng, lat], this.MAROC_POLYGON);
   }
 
-  async create(createCrisisDto: CreateCrisisDto): Promise<Crisis> {
-    const { latitude, longitude } = createCrisisDto.zone;
+ async create(createCrisisDto: CreateCrisisDto): Promise<Crisis> {
+  const { latitude, longitude } = createCrisisDto.zone;
 
-    if (!this.isInsideMorocco(latitude, longitude)) {
-      throw new BadRequestException("La localisation doit être située au Maroc.");
-    }
-
-    const crisis = new this.crisisModel(createCrisisDto);
-    return crisis.save();
+  if (!this.isInsideMorocco(latitude, longitude)) {
+    throw new BadRequestException("La localisation doit être située au Maroc.");
   }
+
+  // 1. créer crisis
+  const crisis = new this.crisisModel(createCrisisDto);
+  const savedCrisis = await crisis.save();
+
+  // 2. créer alert automatiquement
+  const alert = await this.alertsService.create({
+    title: `🚨 ${savedCrisis.title}`,
+    message: savedCrisis.description,
+    crisisId: savedCrisis._id,
+    zone: JSON.stringify(savedCrisis.zone),
+  });
+
+  // 3. envoyer alert automatiquement
+  await this.alertsService.sendAlert(alert._id.toString());
+
+  return savedCrisis;
+}
 
   async findAll(): Promise<Crisis[]> {
     const crises = await this.crisisModel.find().exec();

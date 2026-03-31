@@ -39,12 +39,7 @@ export default function AlertsPage() {
           </p>
         </div>
 
-        <button
-          onClick={() => router.push('/alerts/create')}
-          className="bg-[#D84040] hover:bg-[#8E1616] text-white px-6 py-3 rounded-sm flex items-center gap-2 font-black   tracking-[0.2em] text-[10px] transition-all shadow-lg border border-white/10"
-        >
-          <Plus size={16} /> Rédiger une Alerte
-        </button>
+      
       </div>
 
       {/* Tableau de Contrôle */}
