@@ -24,7 +24,7 @@ export default function Login() {
     useEffect(() => {
         const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null
         if (token || storedToken) {
-            router.replace('/dashboard') // ✅ replace better que push
+            router.replace('/dashboard') 
         }
     }, [token, router])
 

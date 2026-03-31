@@ -20,7 +20,9 @@ export default function Register() {
         e.preventDefault();
         // @ts-ignore (si tu n'as pas encore typé ton slice)
         dispatch(registerUser(form));
+        router.push('/dashboard')
     };
+
 
     return (
         <div className="flex min-h-screen w-full bg-[#2D3336]">
