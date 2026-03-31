@@ -47,6 +47,9 @@ export class UsersService {
       { new: true }
     ).select('-password');
   }
+  async countUsers(): Promise<number> {
+    return this.userModel.countDocuments();
+  }
 
 
 }
