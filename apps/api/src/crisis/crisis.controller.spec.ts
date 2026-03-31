@@ -1,11 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CrisisController } from './crisis.controller';
 import { CrisisService } from './crisis.service';
-import { CreateCrisisDto } from './dto/create-crisis.dto';
-import { UpdateCrisisDto } from './dto/update-crisis.dto';
+import { getModelToken } from '@nestjs/mongoose';
+import { Crisis } from './schemas/crisis.schema';
+import { AlertsService } from 'src/alerts/alerts.service';
 
-describe('CrisisController', () => {
-  let controller: CrisisController;
+describe('CrisisService', () => {
   let service: CrisisService;
 
   const mockCrisis = {
@@ -16,93 +15,116 @@ describe('CrisisController', () => {
     status: 'EN_COURS',
     type: 'flood',
     zone: { latitude: 33.5, longitude: -7.5 },
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    save: jest.fn().mockResolvedValue({
+      _id: '123',
+      title: 'Test Crisis',
+      description: 'Test Description',
+      zone: { latitude: 33.5, longitude: -7.5 },
+    }),
   };
 
-  const mockCrisisService = {
-    create: jest.fn().mockResolvedValue(mockCrisis),
-    findAll: jest.fn().mockResolvedValue([mockCrisis]),
-    findOne: jest.fn().mockResolvedValue(mockCrisis),
-    update: jest.fn().mockResolvedValue(mockCrisis),
-    remove: jest.fn().mockResolvedValue({ deleted: true }),
+  const mockCrisisModel = jest.fn().mockImplementation(() => mockCrisis);
+  mockCrisisModel.find = jest.fn().mockReturnValue({ exec: jest.fn().mockResolvedValue([mockCrisis]) });
+  mockCrisisModel.findById = jest.fn().mockReturnValue({ exec: jest.fn().mockResolvedValue(mockCrisis) });
+  mockCrisisModel.findByIdAndUpdate = jest.fn().mockResolvedValue(mockCrisis);
+  mockCrisisModel.findByIdAndDelete = jest.fn().mockResolvedValue(mockCrisis);
+
+  const mockAlertsService = {
+    create: jest.fn().mockResolvedValue({ _id: 'alert123' }),
+    sendAlert: jest.fn().mockResolvedValue(undefined),
   };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [CrisisController],
       providers: [
+        CrisisService,
         {
-          provide: CrisisService,
-          useValue: mockCrisisService,
+          provide: getModelToken(Crisis.name),
+          useValue: mockCrisisModel,
+        },
+        {
+          provide: AlertsService,
+          useValue: mockAlertsService,
         },
       ],
     }).compile();
 
-    controller = module.get<CrisisController>(CrisisController);
     service = module.get<CrisisService>(CrisisService);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(() => jest.clearAllMocks());
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(service).toBeDefined();
   });
 
   describe('create', () => {
-    it('should create a crisis', async () => {
-      const createDto: CreateCrisisDto = {
-        title: 'New Crisis',
-        description: 'New Description',
-        severity: 'critical',
-        type: 'earthquake',
-        zone: { latitude: 33.5, longitude: -7.5 },
-      };
+    it('should throw if location is outside Morocco', async () => {
+      await expect(
+        service.create({
+          title: 'Out of bounds',
+          description: 'desc',
+          severity: 'low',
+          type: 'flood',
+          zone: { latitude: 48.8, longitude: 2.3 }, // Paris
+        })
+      ).rejects.toThrow('La localisation doit être située au Maroc.');
+    });
 
-      const result = await controller.create(createDto);
+    it('should create a crisis and trigger an alert', async () => {
+      const result = await service.create({
+        title: 'Test Crisis',
+        description: 'Test Description',
+        severity: 'high',
+        type: 'flood',
+        zone: { latitude: 33.5, longitude: -7.5 }, // Casablanca
+      });
 
-      expect(service.create).toHaveBeenCalledWith(createDto);
-      expect(result).toEqual(mockCrisis);
+      expect(mockAlertsService.create).toHaveBeenCalled();
+      expect(mockAlertsService.sendAlert).toHaveBeenCalledWith('alert123');
+      expect(result).toBeDefined();
     });
   });
 
   describe('findAll', () => {
-    it('should return array of crises', async () => {
-      const result = await controller.findAll();
-
-      expect(service.findAll).toHaveBeenCalled();
+    it('should return crises inside Morocco', async () => {
+      const result = await service.findAll();
       expect(Array.isArray(result)).toBe(true);
     });
   });
 
   describe('findOne', () => {
-    it('should return single crisis by id', async () => {
-      const result = await controller.findOne('123');
-
-      expect(service.findOne).toHaveBeenCalledWith('123');
+    it('should return a crisis by id', async () => {
+      const result = await service.findOne('123');
       expect(result).toEqual(mockCrisis);
+    });
+
+    it('should throw NotFoundException if not found', async () => {
+      mockCrisisModel.findById.mockReturnValueOnce({ exec: jest.fn().mockResolvedValue(null) });
+      await expect(service.findOne('nonexistent')).rejects.toThrow('Crisis not found');
     });
   });
 
   describe('update', () => {
-    it('should update a crisis', async () => {
-      const updateDto: UpdateCrisisDto = { status: 'RESOLUE' };
-
-      const result = await controller.update('123', updateDto);
-
-      expect(service.update).toHaveBeenCalledWith('123', updateDto);
+    it('should update and return the crisis', async () => {
+      const result = await service.update('123', { status: 'RESOLUE' });
       expect(result).toEqual(mockCrisis);
+    });
+
+    it('should throw NotFoundException if not found', async () => {
+      mockCrisisModel.findByIdAndUpdate.mockResolvedValueOnce(null);
+      await expect(service.update('bad-id', {})).rejects.toThrow('Crisis not found');
     });
   });
 
   describe('remove', () => {
     it('should delete a crisis', async () => {
-      const result = await controller.remove('123');
+      await expect(service.remove('123')).resolves.not.toThrow();
+    });
 
-      expect(service.remove).toHaveBeenCalledWith('123');
-      expect(result).toEqual({ deleted: true });
+    it('should throw NotFoundException if not found', async () => {
+      mockCrisisModel.findByIdAndDelete.mockResolvedValueOnce(null);
+      await expect(service.remove('bad-id')).rejects.toThrow('Crisis not found');
     });
   });
 });
