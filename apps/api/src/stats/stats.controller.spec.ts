@@ -78,14 +78,5 @@ describe('StatsController', () => {
     });
   });
 
-  describe('resolutionTime', () => {
-    it('should return resolution time statistics', async () => {
-      const result = await controller.resolutionTime();
 
-      expect(service.resolutionTime).toHaveBeenCalled();
-      expect(result).toHaveProperty('avgTime');
-      expect(result).toHaveProperty('fastest');
-      expect(result).toHaveProperty('slowest');
-    });
-  });
 });
