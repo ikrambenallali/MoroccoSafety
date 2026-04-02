@@ -9,7 +9,6 @@ export default function CreateCrisis() {
     const [form, setForm] = useState({
         title: '',
         description: '',
-        status: 'EN_COURS',
         severity: '',
         latitude: '',
         longitude: '',
@@ -23,7 +22,6 @@ export default function CreateCrisis() {
         const data = {
             title: form.title,
             description: form.description,
-            status: form.status,
             severity: form.severity,
             zone: {
                 latitude: Number(form.latitude),

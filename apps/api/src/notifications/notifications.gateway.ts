@@ -12,6 +12,7 @@ import { Server } from 'socket.io';
 export class NotificationsGateway {
 
   @WebSocketServer()
+  // objet qui permet denvoyer des evenements
   server!: Server;
 
   sendAlert(alert: any) {

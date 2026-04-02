@@ -1,6 +1,7 @@
 'use client'
 
 import 'leaflet/dist/leaflet.css'
+// permet de charger un composant dynamiquement
 import dynamic from 'next/dynamic'
 
 const CrisisMap = dynamic(() => import('../../components/map/CrisisMap'), {

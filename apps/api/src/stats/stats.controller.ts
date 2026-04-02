@@ -16,9 +16,6 @@ export class StatsController {
     return this.statsService.crisisByType();
   }
 
-  @Get('resolution-time')
-  resolutionTime() {
-    return this.statsService.resolutionTime();
-  }
+ 
 
 }

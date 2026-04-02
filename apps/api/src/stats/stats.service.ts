@@ -39,23 +39,5 @@ export class StatsService {
 ]);
   }
 
-  async resolutionTime() {
-
-    return this.crisisModel.aggregate([
-      {
-        $match: { status: "RESOLUE" }
-      },
-      {
-        $project: {
-          type: "$type",
-          resolutionTime: {
-            $divide: [
-              { $subtract: ["$updatedAt", "$createdAt"] },
-              1000 * 60 * 60
-            ]
-          }
-        }
-      }
-    ]);
-  }
+ 
 }

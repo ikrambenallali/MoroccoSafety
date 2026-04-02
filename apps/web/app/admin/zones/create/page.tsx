@@ -22,6 +22,7 @@ export default function CreateZone() {
         const zoneData = {
             name: form.name,
             crisisId: form.crisisId,
+            // GeoJSON
             geometry: {
                 type: "Polygon",
                 coordinates: [[

@@ -84,7 +84,7 @@ export default function ReportPage() {
         try {
             let mediaId = null
 
-            // 📸 upload image d'abord
+            //  upload image d'abord
             if (file) {
                 const media = await uploadMedia(file)
                 mediaId = media._id
@@ -96,7 +96,7 @@ export default function ReportPage() {
                     type: 'Point',
                     coordinates: [location.longitude, location.latitude]
                 },
-                mediaId // 👈 important
+                mediaId 
             }
 
             await createReport(reportData, token)

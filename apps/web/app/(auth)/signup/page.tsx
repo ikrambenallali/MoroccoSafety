@@ -18,7 +18,7 @@ export default function Register() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // @ts-ignore (si tu n'as pas encore typé ton slice)
+        // @ts-ignore 
         dispatch(registerUser(form));
         router.push('/dashboard')
     };

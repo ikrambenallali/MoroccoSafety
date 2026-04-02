@@ -106,33 +106,7 @@ export default function StatsPage() {
                     </ResponsiveContainer>
                 </div>
 
-                {/*  RESOLUTION TIME - Graphique Stylisé */}
-                <div className="bg-[#1e2427] border border-[#8E1616]/20 p-8 shadow-2xl relative">
-                    <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-lg font-serif font-bold text-white     tracking-tight">Temps moyen de réponse</h2>
-                        <Clock className="text-[#D84040] opacity-30" size={20} />
-                    </div>
-
-                    <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={resolution}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#8E1616/10" vertical={false} />
-                            <XAxis
-                                dataKey="_id"
-                                stroke="#CCCCCC"
-                                fontSize={10}
-                                tickLine={false}
-                                axisLine={false}
-                            />
-                            <YAxis stroke="#CCCCCC" fontSize={10} tickLine={false} axisLine={false} />
-                            <Tooltip
-                                contentStyle={{ backgroundColor: '#2B3337', border: '1px solid #D84040', color: '#white' }}
-                            />
-                            <Bar dataKey="resolutionTime" fill="#D84040" radius={[2, 2, 0, 0]} barSize={40} />
-                        </BarChart>
-                    </ResponsiveContainer>
-                    <p className="text-[9px]   tracking-widest text-[#CCCCCC]/30 mt-4 text-center">Données exprimées en heures moyennes</p>
-                </div>
-
+              
             </div>
 
             {/* Footer décoratif Dashboard */}
