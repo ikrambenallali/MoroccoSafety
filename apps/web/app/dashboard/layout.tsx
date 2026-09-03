@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <Navbar />
       <div className="flex">
         <Sidebar role={user.role} />
-        <main className="flex-1 bg-gray-50 min-h-screen">
+        <main className="flex-1 bg-[#2B3337] min-h-screen">
           {children}
         </main>
       </div>

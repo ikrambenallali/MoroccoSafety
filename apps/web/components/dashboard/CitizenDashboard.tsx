@@ -9,7 +9,7 @@ export default function CitizenDashboard() {
   useEffect(() => {
     socket.on('alert', (data) => {
       toast.custom((t) => (
-        <div className="w-95 bg-[#1e2427] border-l-4 border-[#D84040] shadow-2xl p-4 flex gap-4 animate-in slide-in-from-right-full border  relative">
+        <div className="w-95  bg-[#1e2427] border-l-4 border-[#D84040] shadow-2xl p-4 flex gap-4 animate-in slide-in-from-right-full border  relative">
 
           <div className="shrink-0 flex items-center justify-center">
             <div className="w-12 h-12 bg-[#D84040]/20 rounded-full flex items-center justify-center animate-pulse">
