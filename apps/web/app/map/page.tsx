@@ -1,5 +1,6 @@
 'use client'
 
+import Navbar from '@/components/home/Navbar'
 import 'leaflet/dist/leaflet.css'
 // permet de charger un composant dynamiquement
 import dynamic from 'next/dynamic'
@@ -16,7 +17,9 @@ const CrisisMap = dynamic(() => import('../../components/map/CrisisMap'), {
 export default function MapPage() {
     return (
         <div className="w-full h-screen bg-[#1e2427]">
-
+    {/* Header / Navbar */}
+         
+                <Navbar />
             <CrisisMap />
         </div>
     )

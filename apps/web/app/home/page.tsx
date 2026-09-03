@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+import Navbar from '@/components/home/Navbar';
 
 export default function MoroccoSafetyHome() {
     return (
@@ -8,31 +9,8 @@ export default function MoroccoSafetyHome() {
 
 
             {/* Header / Navbar */}
-            <header className="relative z-10 bg-white/10 backdrop-blur-md h-16 flex justify-between items-center px-8  md:px-16">
-                <div className="flex items-center">
-                    <Image
-                        src="/logo.png"
-                        alt="MoroccoSafety Logo"
-                        width={120}
-                        height={50}
-                        className="object-contain"
-                    />
-                </div>
-                <nav>
-                    <ul className="flex gap-8 text-lg font-medium tracking-wide  ">
-                        <Link href="/home">
-                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
-                        </Link>
-
-                        <Link href="/map">
-                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">MAP</li>
-                        </Link>
-                        <Link href="/signup">
-                            <li className="cursor-pointer hover:text-[#D84040] transition-colors">Signup</li>
-                        </Link>
-                    </ul>
-                </nav>
-            </header>
+         
+                <Navbar />
             {/* --- 1. NOUVELLE SECTION HERO (1/2 Texte, 1/2 Map.png) --- */}
             <section className="relative min-h-screen flex items-center  overflow-hidden border-b border-[#8E1616]/20">
                 {/* Background très discret */}
@@ -56,12 +34,12 @@ export default function MoroccoSafetyHome() {
                             <span className="text-white font-bold  ">MoroccoSafety</span> est une plateforme citoyenne conçue pour <strong>donner l'alerte</strong> instantanément. En signalant un incident, vous aidez la communauté et les secours à réagir plus vite.
                         </p>
                         <div className="flex flex-wrap gap-4 pt-4">
-                            <button className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest transition-all shadow-lg border border-white/10">
+                            <Link href='/signup' className="bg-[#D84040] hover:bg-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest transition-all shadow-lg border border-white/10">
                                 S'inscrire aux alertes
-                            </button>
-                            <button className="bg-transparent border border-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest hover:bg-[#8E1616]/20 transition-all">
+                            </Link>
+                            <Link  href='/login' className="bg-transparent border border-[#8E1616] text-white px-8 py-4 rounded-sm font-bold   tracking-widest hover:bg-[#8E1616]/20 transition-all">
                                 Signaler un danger
-                            </button>
+                            </Link>
                         </div>
                     </div>
 

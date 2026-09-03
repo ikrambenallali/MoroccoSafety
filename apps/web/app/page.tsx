@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Navbar from '@/components/home/Navbar';
 
 export default function WelcomePage() {
   return (
@@ -18,53 +19,29 @@ export default function WelcomePage() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Header / Navbar */}
-      <header className="relative z-10 bg-white/10 backdrop-blur-md h-16 flex justify-between items-center px-8  md:px-16">
-        <div className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="MoroccoSafety Logo"
-            width={120}
-            height={50}
-            className="object-contain"
-          />
-        </div>
-        <nav>
-          <ul className="flex gap-8 text-lg font-medium tracking-wide  ">
-            <Link href="/home">
-              <li className="cursor-pointer hover:text-[#D84040] transition-colors">Home</li>
-            </Link>
-
-            <Link href="/map">
-              <li className="cursor-pointer hover:text-[#D84040] transition-colors">MAP</li>
-            </Link>
-            <Link href="/signup">
-              <li className="cursor-pointer hover:text-[#D84040] transition-colors">Signup</li>
-            </Link>
-          </ul>
-        </nav>
-      </header>
+      {/* Header / Navbar Component */}
+      <Navbar />
 
       {/* Hero Content */}
       <main className="relative z-10 flex flex-col items-center justify-center text-center px-4 mt-20">
-        <h1 className="text-6xl md:text-8xl font-bold text-[#D84040] drop-shadow-lg mb-4"
-          style={{ fontFamily: 'serif' }}>
+        <h1 
+          className="text-6xl md:text-8xl font-bold text-[#D84040] drop-shadow-lg mb-4"
+          style={{ fontFamily: 'serif' }}
+        >
           MoroccoSafety
         </h1>
 
-        <p className="text-xl md:text-3xl font-light tracking-widest   mb-10 max-w-4xl">
+        <p className="text-xl md:text-3xl font-light tracking-widest mb-10 max-w-4xl">
           Real-time crisis alerts across Morocco <br />
           <span className="font-semibold">Stay informed, Stay safe</span>
         </p>
-        <Link href="/signup">
 
-          <button className="bg-[#D84040]  text-white text-2xl px-10 py-3 rounded-xl transition-all duration-300 shadow-xl lowercase   font-semibold">
-            get Started
+        <Link href="/signup">
+          <button className="bg-[#D84040] text-white text-2xl px-10 py-3 rounded-xl transition-all duration-300 shadow-xl lowercase font-semibold">
+            get started
           </button>
         </Link>
       </main>
-
-     
     </div>
   );
-} 
+}
